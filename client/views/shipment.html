@@ -1,0 +1,183 @@
+<div class="shipment" ng-controller="checkoutCtrl">
+
+<!-- 2 -->
+
+
+    <div class="shipment-content">
+
+
+    <!-- 2 -->
+    <form name="shipmentForm" novalidate class="shipment-form" method="post" ng-submit="shipmentToPayment()">
+
+        <h1 class="h1 shipment-h1">SHIPMENT</h1>
+
+      <div class="customer">
+        <h2 class="form-title">PERSONAL</h2>
+        <div class="form-entry">
+          <input type="text" name="name_customer" value="name" ng-model="checkout.customer.first_name" required placeholder="name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'name'">
+            <span class="form-error" ng-show="checkoutForm.name_customer.$error.required && checkoutForm.name_customer.$touched">required</span>
+          </input>
+        </div>
+
+        <div class="form-entry">
+          <input type="text" name="lastname_customer" value="lastname" ng-model="checkout.customer.last_name" required placeholder="lastname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'lastname'">
+            <span class="form-error" ng-show="checkoutForm.lastname_customer.$error.required && checkoutForm.lastname_customer.$touched">required</span>
+          </input>
+        </div>
+
+        <div class="form-entry">
+          <input type="email" name="email_customer" value="email" ng-model="checkout.customer.email" required placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'email'">
+            <span class="form-error" ng-show="checkoutForm.email_customer.$error.required && checkoutForm.email_customer.$touched">required</span>
+            <span class="form-error" ng-show="checkoutForm.email_customer.$error.email && checkoutForm.email_customer.$touched">invalid email</span>
+          </input>
+        </div>
+      </div>
+
+      <div class="address">
+
+        <h2 class="form-title">ship to</h2>
+
+            <div class="form-entry">
+              <input type="text" name="name_shipment" value="name" ng-model="checkout.shipment.first_name" required placeholder="name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'name'">
+                <span class="form-error" ng-show="checkoutForm.name_shipment.$error.required && checkoutForm.name_shipment.$touched">required</span>
+              </input>
+          </div>
+
+            <div class="form-entry">
+              <input type="text" name="lastname_shipment" value="lastname" ng-model="checkout.shipment.last_name" required placeholder="lastname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'lastname'">
+                <span class="form-error" ng-show="checkoutForm.lastname_shipment.$error.required && checkoutForm.lastname_shipment.$touched">required</span>
+              </input>
+            </div>
+
+            <div class="form-entry">
+              <input type="text" name="address_shipment" value="address" ng-model="checkout.shipment.address_1" required placeholder="address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'address'">
+                <span class="form-error" ng-show="checkoutForm.address_shipment.$error.required && checkoutForm.address_shipment.$touched">required</span>
+              </input>
+            </div>
+
+            <div class="form-entry">
+              <input type="text" name="city_shipment" value="city" ng-model="checkout.shipment.city" required placeholder="city" onfocus="this.placeholder = ''" onblur="this.placeholder = 'city'">
+                <span class="form-error" ng-show="checkoutForm.city_shipment.$error.required && checkoutForm.city_shipment.$touched">required</span>
+              </input>
+            </div>
+
+
+            <div class="form-entry">
+              <input type="text" name="county_shipment" value="county" ng-model="checkout.shipment.county" required placeholder="county" onfocus="this.placeholder = ''" onblur="this.placeholder = 'county'">
+                <span class="form-error" ng-show="checkoutForm.county_shipment.$error.required && checkoutForm.county_shipment.$touched">required</span>
+              </input>
+            </div>
+
+            <div class="form-entry">
+              <select name="country_shipment" ng-model="checkout.shipment.country" required>
+                <option value="" disabled selected>country</option>
+                <option ng-repeat="country in countries" value="{{country.code}}">{{country.name}}</option>
+                <span class="form-error" ng-show="checkoutForm.country_shipment.$error.required && checkoutForm.country_shipment.$touched">required</span>
+              </select>
+              <!-- <input type="text" name="country_shipment" value="country" ng-model="checkout.shipment.country" required placeholder="country" onfocus="this.placeholder = ''" onblur="this.placeholder = 'country'"> -->
+            </div>
+
+
+            <div class="form-entry">
+              <input type="text" name="postcode_shipment" value="postcode" ng-model="checkout.shipment.postcode" ng-pattern="postcodeRegex" required ng-minlength="5" ng-maxlength="8" placeholder="postcode" onfocus="this.placeholder = ''" onblur="this.placeholder = 'postcode'" ng-change="formatPostcode()">
+              <span class="form-error" ng-show="checkoutForm.postcode_shipment.$error.required && checkoutForm.postcode_shipment.$touched">required</span>
+
+                <span class="form-error" ng-show="checkoutForm.postcode_shipment.$error.minlength && checkoutForm.postcode_shipment.$touched">Postcode is too short.</span>
+                <span class="form-error" ng-show="checkoutForm.postcode_shipment.$error.pattern && checkoutForm.postcode_shipment.$touched && checkoutForm.postcode_shipment.$error.maxlength && checkoutForm.postcode_shipment.$error.minlength">Postcode is not in the correct format.</span>
+                <span class="form-error" ng-show="checkoutForm.postcode_shipment.$error.maxlength && checkoutForm.postcode_shipment.$touched">Postcode is too long.</span>
+              </input>
+            </div>
+
+            <div class="form-entry">
+              <input type="text" name="phone_shipment" value="phone" ng-model="checkout.shipment.phone" ng-pattern="phoneRegex" required  ng-minlength="10" placeholder="phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'phone'">
+                <span class="form-error" ng-show="checkoutForm.phone_shipment.$error.required && checkoutForm.phone_shipment.$touched">required</span>
+                <span class="form-error" ng-show="checkoutForm.phone_shipment.$error.minlength && checkoutForm.phone_shipment.$touched">phone is too short.</span>
+                <span class="form-error" ng-show="checkoutForm.phone_shipment.$error.pattern && checkoutForm.phone_shipment.$touched && checkoutForm.phone_shipment.$error.minlength">phone number is not in the correct format.</span>
+              </input>
+            </div>
+
+        </div>
+
+        <div class="isBillingDifferent">
+          <label for="isBillingDifferent-label">different billing</label>
+          <input class="isBillingDifferent-input" type="checkbox" name="isBillingDifferent" value="false" ng-model="isBillingDifferent">
+        </div>
+
+
+
+
+          <div class="billing" ng-show="isBillingDifferent">
+            <h2 class="form-title">bill to</h2>
+            <div class="form-entry">
+              <input type="text" name="name_billing" value="name" ng-model="checkout.billing.first_name" required placeholder="name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'name'">
+              <span class="form-error" ng-show="checkoutForm.name_billing.$error.required && checkoutForm.name_billing.$touched">required</span>
+            </input>
+            </div>
+
+            <div class="form-entry">
+              <input type="text" name="lastname_billing" value="lastname" ng-model="checkout.billing.last_name" required placeholder="lastname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'lastname'">
+                <span class="form-error" ng-show="checkoutForm.lastname_billing.$error.required && checkoutForm.lastname_billing.$touched">required</span>
+              </input>
+            </div>
+
+            <div class="form-entry">
+              <input type="text" name="address1_billing" value="address" ng-model="checkout.billing.address_1" required placeholder="address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'address'">
+                <span class="form-error" ng-show="checkoutForm.address1_billing.$error.required && checkoutForm.address1_billing.$touched">required</span>
+              </input>
+            </div>
+
+            <div class="form-entry">
+              <input type="text" name="city_billing" value="city" ng-model="checkout.billing.city" required placeholder="city" onfocus="this.placeholder = ''" onblur="this.placeholder = 'city'">
+                <span class="form-error" ng-show="checkoutForm.city_billing.$error.required && checkoutForm.city_billing.$touched">required</span>
+              </input>
+            </div>
+
+
+            <div class="form-entry">
+              <input type="text" name="county_billing" value="county" ng-model="checkout.billing.county" required placeholder="county" onfocus="this.placeholder = ''" onblur="this.placeholder = 'county'">
+                <span class="form-error" ng-show="checkoutForm.county_billing.$error.required && checkoutForm.county_billing.$touched">required</span>
+              </input>
+            </div>
+
+            <div class="form-entry">
+
+                <select name="country_billing" ng-model="checkout.billing.country" required>
+                  <option value="" disabled selected>country</option>
+                  <option ng-repeat="country in countries" value="{{country.code}}">{{country.name}}</option>
+                  <span class="form-error" ng-show="checkoutForm.country_billing.$error.required && checkoutForm.country_billing.$touched">required</span>
+                </select>
+                <!-- <input type="text" name="country_shipment" value="country" ng-model="checkout.shipment.country" required placeholder="country" onfocus="this.placeholder = ''" onblur="this.placeholder = 'country'"> -->
+            </div>
+
+
+            <div class="form-entry">
+              <input type="text" name="postcode_billing" value="postcode" ng-model="checkout.billing.postcode" ng-pattern="postcodeRegex" required ng-minlength="5" ng-maxlength="8" placeholder="postcode" onfocus="this.placeholder = ''" onblur="this.placeholder = 'postcode'">
+                <span class="form-error" ng-show="checkoutForm.postcode_billing.$error.required && checkoutForm.postcode_billing.$touched">required</span>
+                <span class="form-error" ng-show="checkoutForm.postcode_billing.$error.minlength && checkoutForm.postcode_billing.$touched">Postcode is too short.</span>
+                <span class="form-error" ng-show="checkoutForm.postcode_billing.$error.pattern && checkoutForm.postcode_billing.$touched">Postcode is not in the correct format.</span>
+                <span class="form-error" ng-show="checkoutForm.postcode_billing.$error.maxlength && checkoutForm.postcode_billing.$touched && !checkoutForm.postcode_billing.$error.minlength && !checkoutForm.postcode_billing.$error.maxlength">Postcode is too long.</span>
+              </input>
+            </div>
+
+            <div class="form-entry">
+              <input type="text" name="phone_billing" value="phone" ng-model="checkout.billing.phone" ng-pattern="phoneRegex" required  ng-minlength="10" placeholder="phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'phone'">
+                <span class="form-error" ng-show="checkoutForm.phone_billing.$error.required && checkoutForm.phone_billing.$touched">required</span>
+                <span class="form-error" ng-show="checkoutForm.phone_billing.$error.minlength && checkoutForm.phone_billing.$touched">phone is too short.</span>
+                <span class="form-error" ng-show="checkoutForm.phone_billing.$error.pattern && checkoutForm.phone_billing.$touched && !checkoutForm.phone_billing.$error.minlength">phone number is not in the correct format.</span>
+              </input>
+            </div>
+
+
+          </div>
+
+
+
+    <button class="checkout-button hvr-sweep-to-right" type="submit" ng-class="{'invalid': shipmentForm.$invalid}" ng-disabled="shipmentForm.$invalid">PAYMENT</button>
+    <!-- hvr-sweep-to-right -->
+  </form>
+
+  <div class="cart-back" ng-click="backFromShipment()">
+    <p class="hvr-bob">back</p>
+  </div>
+
+</div>

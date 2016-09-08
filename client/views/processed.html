@@ -1,0 +1,23 @@
+<div class="processed" ng-cloak>
+  <div class="processed-error" ng-hide="Processed.status==200 || Processed==false">
+    <p>an error occurred please refresh the page</p>
+    <p>{{Processed.data}}</p>
+  </div>
+
+  <div class="processed-thankyou" ng-show="Processed.status==200">
+    <p>
+      your order will be shipped to
+      {{Processed.data.order.ship_to.data.address_1}}
+      {{Processed.data.order.ship_to.data.city}}
+      {{Processed.data.order.ship_to.data.country.value}}
+      {{Processed.data.order.ship_to.data.country.value}}
+    </p>
+    <a class="" href="https://www.instagram.com/alifeinadiary/">@</a>
+  </div>
+
+
+
+  <div class="cart-back" ng-click="backFromProcessed()">
+    <p class="hvr-color">back</p>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="home" summary="home" ng-controller="homeCtrl" ng-class="{'blink': blink}">
+
+
+  <div class="home-content">
+    <ul class="home-ul">
+      <li class="home-li" ng-repeat="s in Story">
+        <table>
+          <tr>
+            <td>
+              <img class="home-li-image" src="{{s.data['story.image'].value.main.url}}" alt="{{s.data.description.value.text}}" ng-if="s.data['story.image'].value.main.url"/>
+              <iframe class="home-li-image" src="{{s.data['story.video'].value.url | trustUrl}}" width="" height="" ng-if="s.data['story.video'].value.url"></iframe>
+            </td>
+          </tr>
+        </table>
+      </li>
+      <li class="home-li infinite-loader" infinite-scroll="nextPage()" infinite-scroll-distance="1"></li>
+
+    </ul>
+
+  </div>
+
+
+
+
+  <div class="home-shop"><a href="/shop/{{Product[0].slug}}">shop</a></div>
+
+</div>

@@ -1,0 +1,275 @@
+.nav{
+  z-index:$z-nav;
+}
+
+.email{
+  position: fixed;
+  right:$margin-sides;
+  top:50%;
+  height:17px;
+  width:120px;
+  margin-top:-8.5px;
+  z-index:$z-nav;
+  @include respond-to(phone){
+    width:120px;
+    top:$margin-sides-mobile;
+    left:50%;
+    margin-top: auto;
+    margin-left: -60px;
+  }
+  a{
+    svg{
+      height:100%;
+      width:120px;
+      @include respond-to(phone){
+        width:100%;
+      }
+    }
+
+  }
+
+}
+
+.instagram{
+  position: fixed;
+  bottom: $margin-sides;
+  right: $margin-sides;
+  width: auto;
+  height:auto;
+  margin: auto;
+  z-index: $z-nav;
+  a{
+    color:#FFFFFF;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+}
+
+
+.logo{
+  position: fixed;
+  left:$margin-sides;
+  top:50%;
+  height:17px;
+  width:100px;
+  margin-top:-8.5px;
+  z-index:$z-logo;
+  @include respond-to(phone){
+    width:100px;
+    left:$margin-sides-mobile;
+  }
+  svg{
+    width:100px;
+    height:100%;
+    @include respond-to(phone){
+      width:100%;
+    }
+  }
+}
+
+
+// .moved{
+//   left:$margin-sides;
+// }
+
+$animation-speed: 0.6s;
+$animation-bezier: linear;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes go_left {
+  from{
+    left:50%;
+  }
+  to {
+    left: $margin-sides;
+  }
+}
+@-webkit-keyframes go_left {
+  from{
+    left:50%;
+  }
+  to {
+    left: $margin-sides;
+  }
+}
+@-moz-keyframes go_left {
+  from{
+    left:50%;
+  }
+  to {
+    left: $margin-sides;
+  }
+}
+@-o-keyframes go_left {
+  from{
+    left:50%;
+  }
+  to {
+    left: $margin-sides;
+  }
+}
+@-ms-keyframes go_left {
+  from{
+    left:50%;
+  }
+  to {
+    left: $margin-sides;
+  }
+}
+
+.moved.ng-moved-remove.ng-moved-remove-active{
+  -webkit-animation: go_left $animation-speed $animation-bezier;
+  -moz-animation: go_left $animation-speed $animation-bezier;
+  -ms-animation: go_left $animation-speed $animation-bezier;
+  -o-animation: go_left $animation-speed $animation-bezier;
+  animation: go_left $animation-speed $animation-bezier;
+}
+
+.moved.ng-moved-add.ng-moved-add-active{
+  -webkit-animation: go_left $animation-speed $animation-bezier;
+  -moz-animation: go_left $animation-speed $animation-bezier;
+  -ms-animation: go_left $animation-speed $animation-bezier;
+  -o-animation: go_left $animation-speed $animation-bezier;
+  animation: go_left $animation-speed $animation-bezier;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.blink {
+  animation: blink .3s steps(5, start) 4;
+  -webkit-animation: blink .1s steps(5, start) 4;
+  -o-animation: blink .3s steps(5, start) 4;
+  -ms-animation: blink .3s steps(5, start) 4;
+  -moz-animation: blink .3s steps(5, start) 4;
+}
+
+.blink-once {
+  animation: blink .2s steps(5, start) 1;
+  -webkit-animation: blink .2s steps(5, start) 1;
+  -o-animation: blink .2s steps(5, start) 1;
+  -ms-animation: blink .2s steps(5, start) 1;
+  -moz-animation: blink .2s steps(5, start) 1;
+}
+
+
+@keyframes blink {
+  to {
+    // visibility: hidden;
+    // background-color: #FFFFFF;
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8);
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    // visibility: hidden;
+    // background-color: #FFFFFF;
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8);
+  }
+}
+@-moz-keyframes blink {
+  to {
+    visibility: hidden;
+    // background-color: #FFFFFF;
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8);
+  }
+}
+@-o-keyframes blink {
+  to {
+    // visibility: hidden;
+    // background-color: #FFFFFF;
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8);
+  }
+}
+@-ms-keyframes blink {
+  to {
+    // visibility: hidden;
+    // background-color: #FFFFFF;
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes increasing-animation {
+  to {
+font-size: 100vw;
+  }
+}
+@-webkit-keyframes increasing-animation {
+  to {
+font-size: 100vw;
+  }
+}
+@-moz-keyframes increasing-animation {
+  to {
+font-size: 100vw;
+  }
+}
+@-o-keyframes increasing-animation {
+  to {
+font-size: 100vw;
+  }
+}
+@-ms-keyframes increasing-animation {
+  to {
+font-size: 100vw;
+  }
+}
+
+// increasing-animation
+
+
+.increasing{
+  animation: increasing-animation 10s;
+  -webkit-animation: increasing-animation 10s;
+  -o-animation: increasing-animation 10s;
+  -ms-animation: increasing-animation 10s;
+  -moz-animation: increasing-animation 10s;
+}

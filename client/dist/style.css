@@ -1,0 +1,1342 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: Delantic;
+  src: url("/assets/fonts/721.woff") format("woff"), url("/assets/fonts/721.eot") format("eot"), url("/assets/fonts/721.ttf") format("ttf"); }
+/*....................................SCSS VARIABLES..................................*/
+/*....................................................................................*/
+/*.................................................................................*/
+/*$break-large-desktop: 2500px;*/
+/*$break-infinite: 500000px;*/
+/*....................................SCSS MIXINS..................................*/
+.nav {
+  z-index: 13; }
+
+.email {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  height: 17px;
+  width: 120px;
+  margin-top: -8.5px;
+  z-index: 13;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .email {
+      width: 120px;
+      top: 10px;
+      left: 50%;
+      margin-top: auto;
+      margin-left: -60px; } }
+  .email a svg {
+    height: 100%;
+    width: 120px;
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/ }
+    @media only screen and (min-width: 0px) and (max-width: 767px) {
+      .email a svg {
+        width: 100%; } }
+
+.instagram {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  z-index: 13; }
+  .instagram a {
+    color: #FFFFFF;
+    text-align: center;
+    display: block;
+    width: 100%; }
+
+.logo {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  height: 17px;
+  width: 100px;
+  margin-top: -8.5px;
+  z-index: 15;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .logo {
+      width: 100px;
+      left: 10px; } }
+  .logo svg {
+    width: 100px;
+    height: 100%;
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/ }
+    @media only screen and (min-width: 0px) and (max-width: 767px) {
+      .logo svg {
+        width: 100%; } }
+
+@keyframes go_left {
+  from {
+    left: 50%; }
+  to {
+    left: 20px; } }
+@-webkit-keyframes go_left {
+  from {
+    left: 50%; }
+  to {
+    left: 20px; } }
+@-moz-keyframes go_left {
+  from {
+    left: 50%; }
+  to {
+    left: 20px; } }
+@-o-keyframes go_left {
+  from {
+    left: 50%; }
+  to {
+    left: 20px; } }
+@-ms-keyframes go_left {
+  from {
+    left: 50%; }
+  to {
+    left: 20px; } }
+.moved.ng-moved-remove.ng-moved-remove-active {
+  -webkit-animation: go_left 0.6s linear;
+  -moz-animation: go_left 0.6s linear;
+  -ms-animation: go_left 0.6s linear;
+  -o-animation: go_left 0.6s linear;
+  animation: go_left 0.6s linear; }
+
+.moved.ng-moved-add.ng-moved-add-active {
+  -webkit-animation: go_left 0.6s linear;
+  -moz-animation: go_left 0.6s linear;
+  -ms-animation: go_left 0.6s linear;
+  -o-animation: go_left 0.6s linear;
+  animation: go_left 0.6s linear; }
+
+.blink {
+  animation: blink 0.3s steps(5, start) 4;
+  -webkit-animation: blink 0.1s steps(5, start) 4;
+  -o-animation: blink 0.3s steps(5, start) 4;
+  -ms-animation: blink 0.3s steps(5, start) 4;
+  -moz-animation: blink 0.3s steps(5, start) 4; }
+
+.blink-once {
+  animation: blink 0.2s steps(5, start) 1;
+  -webkit-animation: blink 0.2s steps(5, start) 1;
+  -o-animation: blink 0.2s steps(5, start) 1;
+  -ms-animation: blink 0.2s steps(5, start) 1;
+  -moz-animation: blink 0.2s steps(5, start) 1; }
+
+@keyframes blink {
+  to {
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8); } }
+@-webkit-keyframes blink {
+  to {
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8); } }
+@-moz-keyframes blink {
+  to {
+    visibility: hidden;
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8); } }
+@-o-keyframes blink {
+  to {
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8); } }
+@-ms-keyframes blink {
+  to {
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8); } }
+@keyframes increasing-animation {
+  to {
+    font-size: 100vw; } }
+@-webkit-keyframes increasing-animation {
+  to {
+    font-size: 100vw; } }
+@-moz-keyframes increasing-animation {
+  to {
+    font-size: 100vw; } }
+@-o-keyframes increasing-animation {
+  to {
+    font-size: 100vw; } }
+@-ms-keyframes increasing-animation {
+  to {
+    font-size: 100vw; } }
+.increasing {
+  animation: increasing-animation 10s;
+  -webkit-animation: increasing-animation 10s;
+  -o-animation: increasing-animation 10s;
+  -ms-animation: increasing-animation 10s;
+  -moz-animation: increasing-animation 10s; }
+
+/*....................................General settings..................................*/
+/*.....................TEXT MARK STYLES......................*/
+::-moz-selection {
+  background: #ede611;
+  color: #FFFFFF;
+  text-shadow: none; }
+
+::selection {
+  background: #ede611;
+  color: #FFFFFF;
+  text-shadow: none; }
+
+/*........................A.................................*/
+a:active {
+  color: #ede611; }
+
+.ng-click-active {
+  color: #ede611;
+  stroke: #ede611; }
+
+a {
+  cursor: pointer;
+  color: #FFFFFF;
+  transition: color 0.4s ease;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease; }
+  a:hover {
+    color: #333333;
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/ }
+    @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+      a:hover {
+        color: #FFFFFF !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+      a:hover {
+        color: #FFFFFF !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+      a:hover {
+        color: #FFFFFF !important; } }
+
+/*.....................ACTIVE CLASSES......................*/
+.active {
+  color: #FF0000 !important;
+  pointer-events: none; }
+
+/*.........................................................*/
+/*....................HIDING SCROLLBAR.....................*/
+::-webkit-scrollbar {
+  display: none; }
+
+* {
+  -webkit-overflow-scrolling: touch; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*.....................GENERAL STYLES......................*/
+html {
+  box-sizing: border-box;
+  font-family: helvetica;
+  width: 100%;
+  height: auto;
+  margin: 0, 0;
+  padding: 0, 0;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+    html {
+      overflow-x: hidden;
+      overflow-y: hidden;
+      position: fixed;
+      height: 100vh;
+      width: 100vw; } }
+
+body {
+  width: 100%;
+  height: auto;
+  margin: 0, 0;
+  padding: 0, 0;
+  display: table;
+  text-transform: uppercase;
+  /* Set the background color of the HTML page to black */
+  background-color: #000000;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/
+  /* Hide oversized content. This prevents the scroll bars. */ }
+  @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+    body {
+      overflow-x: hidden;
+      overflow-y: hidden;
+      position: fixed;
+      height: 100vh;
+      width: 100vw; } }
+
+p, a, li {
+  font-size: 12px;
+  list-style-type: none;
+  letter-spacing: 1px;
+  color: #FFFFFF; }
+
+input, textarea, select, a, li {
+  text-decoration: none; }
+
+table {
+  width: 100%;
+  height: 100%; }
+  table tr td {
+    vertical-align: middle;
+    height: 100%; }
+
+/*.........................MAIN............................*/
+main {
+  height: auto;
+  position: relative;
+  display: block;
+  list-style-type: none;
+  display: table; }
+
+/*.............................Loader............................*/
+/*.............................NG-CLOAK............................*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer; }
+
+.shop {
+  width: 100vw;
+  height: 100vh;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+    .shop {
+      position: relative; } }
+
+.hvr-color {
+  color: #FFFFFF;
+  transition: color 0.4s ease;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease; }
+  .hvr-color:hover {
+    color: #333333;
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/ }
+    @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+      .hvr-color:hover {
+        color: #FFFFFF !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+      .hvr-color:hover {
+        color: #FFFFFF !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+      .hvr-color:hover {
+        color: #FFFFFF !important; } }
+
+.hvr-color-fwrd {
+  color: #FFFFFF;
+  transition: color 0.4s ease;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease; }
+  .hvr-color-fwrd:hover {
+    color: #FF0000;
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/ }
+    @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+      .hvr-color-fwrd:hover {
+        color: #FFFFFF !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+      .hvr-color-fwrd:hover {
+        color: #FFFFFF !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+      .hvr-color-fwrd:hover {
+        color: #FFFFFF !important; } }
+
+.shop-content {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
+  height: 100vh;
+  white-space: nowrap; }
+
+.shop-ul {
+  width: auto;
+  height: 100vh; }
+  .shop-ul .shop-li {
+    padding-right: 15vw;
+    padding-left: 15vw;
+    width: auto;
+    height: 100vh;
+    display: inline-block;
+    position: relative;
+    z-index: 10; }
+    .shop-ul .shop-li:nth-child(1) {
+      padding-left: 40vw; }
+    .shop-ul .shop-li .shop-li-img {
+      max-width: 20vw;
+      margin: auto;
+      display: block;
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/ }
+      @media only screen and (min-width: 0px) and (max-width: 767px) {
+        .shop-ul .shop-li .shop-li-img {
+          max-width: 70vw; } }
+    .shop-ul .shop-li .shop-li-add {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%; }
+
+.shop-home {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+  z-index: 12; }
+  .shop-home a {
+    width: 100%;
+    display: block;
+    text-align: center; }
+
+.dollar {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  height: 100px;
+  margin-top: -25px;
+  width: auto;
+  z-index: 11; }
+  .dollar a {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    color: #FFFFFF;
+    transition: color 0.4s ease;
+    -webkit-transition: color 0.4s ease;
+    -moz-transition: color 0.4s ease;
+    -ms-transition: color 0.4s ease;
+    -o-transition: color 0.4s ease; }
+    .dollar a:hover {
+      color: #333333;
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/ }
+      @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+        .dollar a:hover {
+          color: #FFFFFF !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+        .dollar a:hover {
+          color: #FFFFFF !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+        .dollar a:hover {
+          color: #FFFFFF !important; } }
+  .dollar .dollar-contents {
+    display: inline-block;
+    position: relative;
+    color: #FFFFFF;
+    display: inline-block;
+    top: -0; }
+
+.shop-table-functions {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  width: 100px;
+  margin-left: -50px;
+  height: auto;
+  z-index: 11;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+
+.detail-add {
+  position: relative;
+  height: auto;
+  width: auto;
+  margin: 0;
+  display: inline-block; }
+  .detail-add p {
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFFFFF;
+    transition: color 0.4s ease;
+    -webkit-transition: color 0.4s ease;
+    -moz-transition: color 0.4s ease;
+    -ms-transition: color 0.4s ease;
+    -o-transition: color 0.4s ease;
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica;
+    text-align: right;
+    margin: 0; }
+    .detail-add p:hover {
+      color: #333333;
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/ }
+      @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+        .detail-add p:hover {
+          color: #FFFFFF !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+        .detail-add p:hover {
+          color: #FFFFFF !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+        .detail-add p:hover {
+          color: #FFFFFF !important; } }
+
+.detail-modifiers {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px; }
+  .detail-modifiers .detail-modifiers-ul {
+    display: block;
+    width: auto; }
+    .detail-modifiers .detail-modifiers-ul .detail-modifiers-ul-placeholder {
+      width: auto;
+      display: block;
+      float: left;
+      font-size: 12px;
+      line-height: 22px;
+      font-family: helvetica; }
+    .detail-modifiers .detail-modifiers-ul .detail-modifiers-variations {
+      width: auto;
+      display: block;
+      float: left;
+      margin-left: 5px; }
+      .detail-modifiers .detail-modifiers-ul .detail-modifiers-variations .detail-modifiers-variations-li {
+        display: block;
+        clear: both; }
+        .detail-modifiers .detail-modifiers-ul .detail-modifiers-variations .detail-modifiers-variations-li a {
+          font-size: 12px;
+          line-height: 22px;
+          font-family: helvetica; }
+
+.shop-product-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 40px;
+  margin-left: -75px;
+  margin-top: -20px; }
+  .shop-product-info .detail-price {
+    height: 20px;
+    width: 150px;
+    line-height: 20px;
+    vertical-align: middle;
+    text-align: center;
+    z-index: 9; }
+  .shop-product-info .detail-name {
+    height: 20px;
+    width: 150px;
+    line-height: 20px;
+    vertical-align: middle;
+    text-align: center;
+    z-index: 9; }
+
+.shop-preorder-message {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: auto;
+  height: auto; }
+
+.fullscreen {
+  width: 100vw !important;
+  max-width: none !important;
+  position: fixed;
+  display: block;
+  height: 100vh;
+  z-index: 999999;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  top: 0;
+  left: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin: 0; }
+  .fullscreen img {
+    width: 100vw !important;
+    max-width: none !important; }
+
+.page-shop {
+  background-color: #000000; }
+
+.page-shop.ng-enter {
+  animation: cominUp 0.6s linear;
+  -webkit-animation: cominUp 0.6s linear;
+  -moz-animation: cominUp 0.6s linear;
+  -ms-animation: cominUp 0.6s linear;
+  -o-animation: cominUp 0.6s linear; }
+
+.page-shop.ng-leave {
+  position: fixed;
+  animation: cominDown 0.6s linear;
+  -webkit-animation: cominDown 0.6s linear;
+  -moz-animation: cominDown 0.6s linear;
+  -ms-animation: cominDown 0.6s linear;
+  -o-animation: cominDown 0.6s linear; }
+
+.page-home.ng-leave {
+  position: fixed;
+  animation: homeUp 0.6s linear;
+  -webkit-animation: homeUp 0.6s linear;
+  -moz-animation: homeUp 0.6s linear;
+  -ms-animation: homeUp 0.6s linear;
+  -o-animation: homeUp 0.6s linear; }
+
+.page-home.ng-enter {
+  position: fixed;
+  animation: homeDown 0.6s linear;
+  -webkit-animation: homeDown 0.6s linear;
+  -moz-animation: homeDown 0.6s linear;
+  -ms-animation: homeDown 0.6s linear;
+  -o-animation: homeDown 0.6s linear; }
+
+@keyframes cominUp {
+  0% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-webkit-keyframes cominUp {
+  0% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-moz-keyframes cominUp {
+  0% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-ms-keyframes cominUp {
+  0% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-o-keyframes cominUp {
+  0% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@keyframes cominDown {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-webkit-keyframes cominDown {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-moz-keyframes cominDown {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-ms-keyframes cominDown {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-o-keyframes cominDown {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@keyframes homeUp {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-webkit-keyframes homeUp {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-moz-keyframes homeUp {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-ms-keyframes homeUp {
+  0% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-o-keyframes homeDown {
+  0% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@keyframes homeDown {
+  0% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-webkit-keyframes homeDown {
+  0% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-moz-keyframes homeDown {
+  0% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-ms-keyframes homeDown {
+  0% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+@-o-keyframes homeDown {
+  0% {
+    transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    /* IE 9 */
+    -webkit-transform: translateY(-100vh);
+    /* Safari */
+    transform-origin: 0 0; }
+  100% {
+    transform: translateY(0vh);
+    -ms-transform: translateY(0vh);
+    /* IE 9 */
+    -webkit-transform: translateY(0vh);
+    /* Safari */
+    transform-origin: 0 0; } }
+.cart {
+  position: fixed;
+  height: 550px;
+  width: 550px;
+  margin-left: -275px;
+  margin-top: -275px;
+  left: 50%;
+  top: 50%;
+  z-index: 13;
+  background-color: #000000;
+  border: 1px solid white;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .cart {
+      height: 80vh;
+      width: 100vw;
+      bottom: 0px;
+      width: 100vw;
+      top: auto;
+      bottom: 0;
+      margin: 0;
+      left: 0; } }
+
+.clickOut {
+  position: fixed;
+  background: transparent;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 12;
+  background-color: rgba(0, 0, 0, 0.92); }
+
+.cart-contents {
+  height: 100%; }
+
+.cart-ul {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  width: 450px;
+  height: auto;
+  max-height: 450px;
+  overflow: scroll; }
+  .cart-ul .cart-li {
+    width: 100%;
+    display: block;
+    height: 70px;
+    position: relative; }
+    .cart-ul .cart-li:nth-child(1) {
+      margin-top: 50px; }
+    .cart-ul .cart-li p {
+      font-size: 12px;
+      line-height: 22px;
+      font-family: helvetica;
+      float: left; }
+    .cart-ul .cart-li span {
+      float: right;
+      margin-left: 5px;
+      font-size: 12px;
+      line-height: 22px;
+      font-family: helvetica;
+      position: absolute;
+      right: 0; }
+
+.cart-total {
+  position: absolute;
+  left: 50px;
+  bottom: 100px;
+  height: auto;
+  width: auto;
+  margin-bottom: 20px; }
+  .cart-total .cart-total-tax {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica; }
+  .cart-total .cart-total-amount {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica; }
+
+.form-title {
+  font-size: 20px;
+  line-height: 30px;
+  font-family: helvetica;
+  color: #FFFFFF; }
+
+.checkout-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  color: white;
+  background-color: black;
+  font-size: 20px;
+  line-height: 30px;
+  font-family: helvetica;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .checkout-button {
+      box-sizing: border-box;
+      border-top: 1px solid white; } }
+  .checkout-button:hover {
+    color: white;
+    background-color: blue; }
+
+.cart-back {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  height: auto;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.7); }
+  .cart-back p {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica; }
+
+.form-entry {
+  width: 100%;
+  height: 20px;
+  position: relative;
+  margin-top: 5px; }
+  .form-entry:nth-child(1) {
+    margin-top: 15px; }
+  .form-entry input {
+    width: 150px;
+    left: 0px;
+    position: absolute;
+    top: 50%;
+    height: 20px;
+    margin-top: -10px;
+    color: #FFFFFF;
+    background-color: #000000;
+    border: 1px solid #FFFFFF;
+    text-align: left;
+    outline: 0;
+    border-radius: 0%;
+    -webkit-border-radius: 0%;
+    -moz-border-radius: 0%;
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica;
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/ }
+    @media only screen and (min-width: 0px) and (max-width: 767px) {
+      .form-entry input {
+        line-height: normal; } }
+    .form-entry input:hover, .form-entry input:focus {
+      outline: 0; }
+    .form-entry input::-webkit-input-placeholder {
+      color: #FFFFFF; }
+    .form-entry input:-moz-placeholder {
+      /* Firefox 18- */
+      color: #FFFFFF; }
+    .form-entry input::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #FFFFFF; }
+    .form-entry input:-ms-input-placeholder {
+      color: #FFFFFF; }
+
+select {
+  width: 150px;
+  left: 0px;
+  position: absolute;
+  top: 50%;
+  height: 20px;
+  margin-top: -10px;
+  color: #FFFFFF;
+  background-color: #000000;
+  border: 1px solid #FFFFFF;
+  text-align: left;
+  outline: 0;
+  font-size: 12px;
+  line-height: 22px;
+  font-family: helvetica;
+  border-radius: 0%;
+  -webkit-border-radius: 0%;
+  -moz-border-radius: 0%;
+  outline: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none; }
+  select::-webkit-input-placeholder {
+    color: #FFFFFF; }
+  select:-moz-placeholder {
+    /* Firefox 18- */
+    color: #FFFFFF; }
+  select::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #FFFFFF; }
+  select:-ms-input-placeholder {
+    color: #FFFFFF; }
+
+input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
+  border: 1px solid #FFFF00; }
+
+.payment {
+  width: 100%;
+  height: 100%; }
+
+.payment-form {
+  width: 100%;
+  height: 100%; }
+  .payment-form .payment-form-div {
+    width: 30%;
+    display: block;
+    position: absolute;
+    left: 0%;
+    top: 50px;
+    left: 50px; }
+
+.payment-total {
+  position: absolute;
+  left: 50px;
+  bottom: 100px;
+  height: auto;
+  width: 150px;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.7); }
+  .payment-total p {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica;
+    width: 100%; }
+    .payment-total p span {
+      float: right;
+      font-size: 12px;
+      line-height: 22px;
+      font-family: helvetica; }
+
+.payment-header {
+  font-size: 20px;
+  line-height: 30px;
+  font-family: helvetica; }
+
+.shipment {
+  width: 100%;
+  height: 100%; }
+  .shipment .shipment-content {
+    width: 100%;
+    height: 100%; }
+    .shipment .shipment-content .shipment-form {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+
+.customer {
+  width: 30%;
+  display: block;
+  position: absolute;
+  left: 0%;
+  top: 50px;
+  left: 50px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .customer {
+      top: 30px;
+      left: 30px; } }
+
+.address {
+  width: 35%;
+  display: block;
+  position: absolute;
+  left: 50px;
+  top: 195px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .address {
+      top: 155px;
+      left: 30px; } }
+
+.billing {
+  width: 50%;
+  display: block;
+  position: absolute;
+  left: 35%;
+  top: 195px;
+  margin-left: 50px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .billing {
+      top: 155px;
+      left: 45%;
+      margin-left: 30px; } }
+
+.isBillingDifferent {
+  position: absolute;
+  left: 241px;
+  top: 156px;
+  height: auto;
+  width: auto;
+  margin-bottom: 20px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .isBillingDifferent {
+      top: 125px;
+      left: 45%;
+      margin-left: 30px; } }
+  .isBillingDifferent label {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica;
+    color: #FFFFFF; }
+  .isBillingDifferent input {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica;
+    color: #FFFFFF; }
+
+.processed {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0; }
+
+.processed-thankyou {
+  width: 100%;
+  height: auto;
+  margin-top: 100px; }
+  .processed-thankyou p {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica; }
+  .processed-thankyou a {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+    font-size: 12px;
+    line-height: 22px;
+    font-family: helvetica; }

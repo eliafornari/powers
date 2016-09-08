@@ -1,0 +1,245 @@
+/*....................................General settings..................................*/
+
+
+
+
+/*.....................TEXT MARK STYLES......................*/
+
+::-moz-selection {
+    background: $yellow;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+
+
+::selection {
+    background: $yellow;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+
+/*........................A.................................*/
+
+
+a:active {
+    color: $yellow;
+}
+.ng-click-active{
+  color:$yellow;
+  stroke: $yellow;
+}
+
+a{
+  cursor: pointer;
+  @include hover-effect-color(#FFFFFF, #333333);
+}
+
+
+/*.....................ACTIVE CLASSES......................*/
+
+.active{
+  color: #FF0000 !important;
+  pointer-events: none;
+}
+
+/*.........................................................*/
+
+
+
+
+
+
+/*....................HIDING SCROLLBAR.....................*/
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+*{
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+html{
+
+}
+
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+
+
+/*.....................GENERAL STYLES......................*/
+
+html{
+  box-sizing: border-box;
+  font-family: $font-family-paragraph;
+  width: 100%;
+  height: auto;
+  margin: 0, 0;
+  padding: 0, 0;
+  @include respond-to(phone-device){
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: fixed;
+    height:100vh;
+    width:100vw;
+  }
+}
+
+
+body {
+  width: 100%;
+  height: auto;
+  margin: 0, 0;
+  padding: 0, 0;
+  display: table;
+  text-transform: uppercase;
+/* Set the background color of the HTML page to black */
+background-color: #000000;
+@include respond-to(phone-device){
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: fixed;
+  height:100vh;
+  width:100vw;
+}
+
+/* Hide oversized content. This prevents the scroll bars. */
+// overflow: hidden;
+}
+
+
+p, a, li {
+  font-size: $font-size-paragraph;
+  list-style-type: none;
+  letter-spacing:$letter-spacing;
+  color: #FFFFFF;
+}
+
+
+input, textarea, select, a, li {
+  text-decoration: none;
+}
+
+
+table{
+  width:100%;
+  height:100%;
+  tr{
+    td{
+      vertical-align: middle;
+      height:100%;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+/*.........................MAIN............................*/
+main {
+  height: auto;
+  position: relative;
+  display: block;
+  list-style-type: none;
+  display: table;
+}
+
+/*.............................Loader............................*/
+
+
+
+// .page-loader-div{
+//   display: block;
+//   height: 100vh;
+//   display: block;
+//   width: 100vw;
+//   padding: 0;
+//   margin: 0;
+//   display: list-item;
+//   background-color: transparent;
+//   z-index: $z-loader;
+//   background-color: rgba(0,0,0,1);
+//   position: fixed;
+//   top:0;
+//   left:0;
+//   .loading-p{
+//     position: fixed;
+//     width:100vw;
+//     height:100vh;
+//     vertical-align: middle;
+//     text-align: center;
+//     font-size: $font-size-h2;
+//     font-family: helvetica;
+//   }
+// }
+//
+// .page-loader-div{
+//   opacity:1;
+// }
+//
+// .page-loader-div.ng-hide{
+//   opacity:0;
+// }
+//
+//
+// $animation-speed:2s;
+//
+// .page-loader-div.ng-hide-remove.ng-hide-remove-active{
+//   -webkit-transition: opacity $animation-speed $animation-bezier;
+//   -moz-transition: opacity $animation-speed $animation-bezier;
+//   -ms-transition: opacity $animation-speed $animation-bezier;
+//   -o-transition: opacity $animation-speed $animation-bezier;
+//   transition: opacity $animation-speed $animation-bezier;
+// }
+//
+// .page-loader-div.ng-hide-add.ng-hide-add-active{
+//   -webkit-transition: opacity $animation-speed $animation-bezier;
+//   -moz-transition: opacity $animation-speed $animation-bezier;
+//   -ms-transition: opacity $animation-speed $animation-bezier;
+//   -o-transition: opacity $animation-speed $animation-bezier;
+//   transition: opacity $animation-speed $animation-bezier;
+// }
+//
+
+
+
+
+
+/*.............................NG-CLOAK............................*/
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+cursor: pointer;
+}

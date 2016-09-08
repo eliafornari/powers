@@ -1,0 +1,24 @@
+<div class="cart-contents"> <!-- 1 -->
+
+
+    <ul class="cart-ul">
+      <li ng-repeat="c in Cart.contents track by $index" class="cart-li">
+        <p>{{c.quantity}} {{c.name}} {{c.pricing.formatted.without_tax}}</p>
+         <span class="hvr-skew" ng-click="removeItem(c.item)">X</span>
+      </li>
+    </ul>
+
+
+    <div class="cart-total">
+      <p class="cart-total-amount">TOTAL {{Cart.totals.pre_discount.formatted.without_tax}}</p>
+    </div>
+
+    <div class="cart-error" ng-show="noProductsError">
+      <p>no products in your cart</p>
+      <a ng-click="closeCart()">back</a>
+    </div>
+
+    <button type="submit" class="checkout-button hvr-sweep-to-right" ng-click="cartToShipment()">CHECKOUT</button>
+
+
+</div>

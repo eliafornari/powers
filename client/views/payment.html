@@ -1,0 +1,54 @@
+
+<div class="payment" ng-controller="checkoutCtrl">
+<!-- 3 -->
+
+  <form name="paymentForm" novalidate class="payment-form" method="post" ng-hide="paymentProcessed" ng-submit="paymentToProcess()">
+
+    <div class="payment-form-div">
+
+      <h2 class="form-title">bill to</h2>
+      <div class="form-entry">
+        <input type="text" name="number" value="card number" ng-model="payment.number" required="required" placeholder="card number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'card number'" min="0" max="10">
+        <!-- <div class="">
+          {{paymentForm.number.$error}}
+        </div> -->
+        <span ng-show="paymentForm.number.$error.integer">The value is not a valid integer!</span>
+        <span ng-show="paymentForm.number.$error.min || paymentForm.number.$error.max">The value must be in range 0 to 10!</span>
+      </div>
+      <div class="form-entry">
+        <input type="text" name="month" value="expiry month" ng-model="payment.expiry_month" required="required" placeholder="expiry month" onfocus="this.placeholder = ''" onblur="this.placeholder = 'expiry month'" min="0" max="2">
+        <span ng-show="paymentForm.month.$error.integer">The value is not a valid integer!</span>
+        <span ng-show="paymentForm.month.$error.min || paymentForm.month.$error.max">The value must be in range 0 to 2!</span>
+      </div>
+      <div class="form-entry">
+        <input type="text" name="year" value="expiry year" ng-model="payment.expiry_year" required="required" placeholder="expiry year" onfocus="this.placeholder = ''" onblur="this.placeholder = 'expiry year'"  min="3" max="3">
+        <span ng-show="paymentForm.year.$error.integer">The value is not a valid integer!</span>
+        <span ng-show="paymentForm.year.$error.min || paymentForm.year.$error.max">The value must be in range 0 to 4!</span>
+      </div>
+      <div class="form-entry">
+        <input type="text" name="cvv" value="cvv" ng-model="payment.cvv" ng-value="cvv" required="required" placeholder="cvv" onfocus="this.placeholder = ''" onblur="this.placeholder = 'cvv'">
+        <span ng-show="paymentForm.cvv.$error.integer">The value is not a valid integer!</span>
+        <span ng-show="paymentForm.cvv.$error.min || paymentForm.cvv.$error.max">The value must be 3 characters</span>
+
+      </div>
+    </div>
+    <button type="submit" class="checkout-button hvr-sweep-to-right" ng-disabled="paymentForm.$invalid">PAY</button>
+    <!-- hvr-sweep-to-right -->
+
+  </form>
+
+
+  <div class="payment-total" >
+    <p>SHIPPING <span>{{Totals.totals.shipping_price.formatted}}</span></p>
+    <!-- <p>TAX <span>10%</span></p> -->
+    <p>TOTAL <span>{{Totals.totals.total.formatted}}</span></p>
+  </div>
+
+
+
+  <div class="cart-back" ng-click="backFromPayment()">
+    <p class="hvr-color">back</p>
+  </div>
+
+
+</div>

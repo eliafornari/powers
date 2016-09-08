@@ -1,0 +1,43 @@
+{
+  "name": "NodeApp",
+  "version": "0.1.1",
+  "description": "A Node.js App using express",
+  "main": "server/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "gulp watch --gulpfile client/gulpfile.babel.js",
+    "start":"node server/main.js"
+  },
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-animate": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-sanitize": "^1.5.7",
+    "body-parser": "~1.5.2",
+    "ejs": "^2.4.2",
+    "express": "*",
+    "jquery": "^3.0.0",
+    "jquery-mousewheel": "^3.1.13",
+    "method-override": "~2.1.2",
+    "moltin": "^1.0.3",
+    "mongoose": "~3.6.2",
+    "morgan": "~1.2.2",
+    "path": "^0.12.7",
+    "prerender-node": "^2.1.0",
+    "prismic.io": "^2.1.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.2.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-connect": "^4.0.0",
+    "gulp-es6-transpiler": "^1.0.1",
+    "gulp-ruby-sass": "^2.0.6",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "engine": "node >=0.6.x"
+}

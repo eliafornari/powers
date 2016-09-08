@@ -1,2 +1,4 @@
 # powers
-powers.supply
+powers
+
+produced by Elia Fornari

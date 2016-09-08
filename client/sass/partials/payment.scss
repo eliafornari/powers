@@ -1,0 +1,46 @@
+
+.payment{
+  width:100%;
+  height:100%;
+}
+
+
+.payment-form{
+  width:100%;
+  height:100%;
+  .payment-form-div{
+    width:30%;
+    display:block;
+    position: absolute;
+    left:0%;
+    top: 50px;
+    left: 50px;
+  }
+}
+
+
+
+  .payment-total{
+    position: absolute;
+    left:50px;
+    bottom: 100px;
+    height: auto;
+    width: 150px;
+    margin-bottom: $margin-sides;
+    background-color: rgba(0,0,0,0.7);
+    p{
+      @include paragraph();
+      width:100%;
+      span{
+        float:right;
+        @include paragraph();
+      }
+    }
+  }
+
+
+
+
+.payment-header{
+  @include h2();
+}
