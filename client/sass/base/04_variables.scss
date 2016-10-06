@@ -17,7 +17,7 @@ $font-weight-regular: 400;
 $font-size-nav:35px;
 $font-size-h1:35px;
 $font-size-h2:20px;
-$font-size-paragraph: 12px;
+$font-size-paragraph: 18px;
 
 $font-size-nav-mobile:25px;
 $font-size-h1-mobile:30px;
@@ -41,7 +41,7 @@ $font-family-paragraph: helvetica;
 // ........................................................FONT LINEHEIGHTS
 $line-height-h1: 50px;
 $line-height-h2: 30px;
-$line-height-paragraph: 22px;
+$line-height-paragraph: 26px;
 
 
 $line-height-h1-mobile: 40px;
@@ -60,7 +60,7 @@ $black: #000000;
 $violet: #a899c0;
 $white: #FFFFFF;
 $yellow: #ede611;
-// f0e928
+$green: #009900;
 $light-grey: #d3d3d3;
 $light-grey-transparent: rgba(0,0,0, 0.3);
 $light-light-grey: rgba(0,0,0, 0.1);
@@ -72,6 +72,7 @@ $margin-top: 100px;
 $margin-top-mobile: 50px;
 $margin-sides-mobile:10px;
 $margin-left-paragraph:5px;
+$margin-top-li:40px;
 $margin-top-paragraph:10px;
 
 // ........................................................TRANSITION TIMINGS
@@ -96,10 +97,12 @@ $smooth-scroll-timing: 1.4s;
 $z-header: 13;
 $z-logo:15;
 $z-loader: 14;
+$z-clickOut: 14;
 $z-nav: 13;
+
 $z-cart: 13;
 $z-back: 12;
-$z-clickOut: 12;
+
 $z-shop-dollar: 11;
 $z-shop-functions: 11;
 $z-close:10;

@@ -7,14 +7,14 @@
 
 ::-moz-selection {
     background: $yellow;
-    color: #FFFFFF;
+    color: #000000;
     text-shadow: none;
 }
 
 
 ::selection {
     background: $yellow;
-    color: #FFFFFF;
+    color: #000000;
     text-shadow: none;
 }
 
@@ -31,7 +31,7 @@ a:active {
 
 a{
   cursor: pointer;
-  @include hover-effect-color(#FFFFFF, #333333);
+  @include hover-effect-color(#000000, #333333);
 }
 
 
@@ -62,22 +62,6 @@ a{
 
 *{
   -webkit-overflow-scrolling: touch;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-html{
-
 }
 
 
@@ -115,8 +99,7 @@ body {
   padding: 0, 0;
   display: table;
   text-transform: uppercase;
-/* Set the background color of the HTML page to black */
-background-color: #000000;
+  background-color: #FFFFFF;
 @include respond-to(phone-device){
   overflow-x: hidden;
   overflow-y: hidden;
@@ -134,7 +117,8 @@ p, a, li {
   font-size: $font-size-paragraph;
   list-style-type: none;
   letter-spacing:$letter-spacing;
-  color: #FFFFFF;
+  color: #000000;
+  font-weight: 900;
 }
 
 

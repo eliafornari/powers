@@ -1,14 +1,11 @@
 .cart{
   position: fixed;
-  height: 550px;
-  width: 550px;
-  margin-left: -275px;
-  margin-top: -275px;
-  left:50%;
-  top:50%;
+  height: 100vh;
+  width: 100vw;
+  left:0;
+  top:0;
   z-index: $z-cart;
-  background-color: #000000;
-  border: 1px solid white;
+  background-color: $white;
   @include respond-to(phone){
     height: 80vh;
     width: 100vw;
@@ -26,12 +23,17 @@
 .clickOut{
   position: fixed;
   background: transparent;
-  top:0;
-  left:0;
-  width:100vw;
-  height: 100vh;
+  bottom:$margin-sides;
+  left:50%;
+  margin-left:-100px;
+  width:100px;
+  height: auto;
   z-index: $z-clickOut;
-  background-color: rgba(0,0,0,0.92);
+  p{
+    width:100%;
+    @include hover-effect-color($black, $green);
+  }
+
 }
 
 .cart-contents{
@@ -39,31 +41,41 @@
 }
 .cart-ul{
   position: absolute;
-  left: 50px;
+  left: 0;
   top:0;
-  width:450px;
+  width:50vw;
   height:auto;
-  max-height:450px;
   overflow:scroll;
   .cart-li{
     width:100%;
     display:block;
     height: 70px;
     position: relative;
-    &:nth-child(1){
-      margin-top:50px;
-    }
-    p{
-      @include paragraph();
+    margin-top: $margin-top-li;
+
+
+    .cart-li-text{
       float:left;
+      margin-left: $margin-sides;
+      // margin-top: $margin-sides;
+      // padding-bottom: $margin-sides;
+      .cart-li-name{
+        @include paragraph();
+      }
+      .cart-li-price{
+        width:auto;
+        @include paragraph();
+      }
     }
-    span{
-      float:right;
-      margin-left: $margin-left-paragraph;
-      @include paragraph();
+    .cart-li-remove{
       position: absolute;
-      right: 0;
+      right: $margin-sides;
+      top:50%;
+      height:30px;
+      margin-top: -15px;
+      @include paragraph();
     }
+
   }
 }
 
@@ -104,34 +116,26 @@
 
 .checkout-button{
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  top: 0;
+  right:0;
+  width: 50%;
   text-align: center;
-  height: 100px;
-  line-height: 100px;
-  color: white;
-  background-color: black;
-  @include h2();
+  height: 100vh;
+  line-height: 100vh;
+  @include h1();
+  @include hover-effect-color($black, $green);
+  background-color: $white;
   border: 0;
   outline: 0;
   cursor:pointer;
-  @include respond-to(phone){
-    box-sizing: border-box;
-    border-top: 1px solid white;
-  }
-  &:hover{
-    color: white;
-    background-color: blue;
-  }
 }
 
 .cart-back{
   position: absolute;
-  right:$margin-sides;
-  top: $margin-sides;
+  left:$margin-sides;
+  bottom: $margin-sides;
   height: auto;
   width: auto;
-  background-color: rgba(0,0,0,0.7);
   p{
     @include paragraph();
   }
@@ -153,11 +157,10 @@
     top: 50%;
     height: 20px;
     margin-top: -10px;
-    color: #FFFFFF;
-    background-color: #000000;
-    border:1px solid #FFFFFF;
     text-align: left;
+    color: $black;
     outline:0;
+    border:0;
     border-radius: 0%;
     -webkit-border-radius: 0%;
     -moz-border-radius: 0%;
@@ -165,24 +168,24 @@
     @include respond-to(phone){
       line-height: normal;
     }
-    $placeholder-color:#FFFFFF;
+    $placeholder-color:$black;
     &:hover, &:focus{
       outline:0;
     }
 
     &::-webkit-input-placeholder {
-       color: #FFFFFF;
+       color: $black;
     }
     &:-moz-placeholder { /* Firefox 18- */
-       color: #FFFFFF;
+       color: $black;
     }
 
     &::-moz-placeholder {  /* Firefox 19+ */
-       color: #FFFFFF;
+       color: $black;
     }
 
     &:-ms-input-placeholder {
-        color: #FFFFFF;
+        color: $black;
     }
 
   }
@@ -199,13 +202,14 @@ select{
   top: 50%;
   height: 20px;
   margin-top: -10px;
-  color: #FFFFFF;
-  background-color: #000000;
-  border:1px solid #FFFFFF;
+  border:0;
+  color: $black;
   text-align: left;
   outline:0;
+  background-color: transparent;
+
   @include paragraph();
-  $placeholder-color:#FFFFFF;
+  $placeholder-color:$black;
   border-radius: 0%;
   -webkit-border-radius: 0%;
   -moz-border-radius: 0%;
@@ -217,18 +221,18 @@ select{
   border-radius: none;
 
   &::-webkit-input-placeholder {
-     color: #FFFFFF;
+     color: $black;
   }
   &:-moz-placeholder { /* Firefox 18- */
-     color: #FFFFFF;
+     color: $black;
   }
 
   &::-moz-placeholder {  /* Firefox 19+ */
-     color: #FFFFFF;
+     color: $black;
   }
 
   &:-ms-input-placeholder {
-      color: #FFFFFF;
+      color: $black;
   }
 }
 

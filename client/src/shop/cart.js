@@ -23,6 +23,34 @@ Cart.controller('cartCtrl', function($scope, $location, $rootScope, $timeout,	$h
   });
 
 
+
+  $rootScope.countries = [];
+
+  $rootScope.getCountries = function(){
+    $http({
+      method: 'GET',
+      url: 'assets/countries.json'
+    }).then(function successCallback(response) {
+
+      $rootScope.countries = response.data;
+      console.log(response.data);
+
+
+    }, function errorCallback(response) {
+
+      $scope.error = {value: true, text:'countries not available, this page will be reloaded'};
+      setTimeout({
+        // $route.reload();
+      }, 2000);
+    });
+  };
+  $rootScope.getCountries();
+
+
+  $scope.phoneRegex = '^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$';
+  $scope.postcodeRegex = '^\\d{5}-\\d{4}|\\d{5}|[A-Z]\\d[A-Z] \\d[A-Z]\\d$'
+
+
   $rootScope.updateCart = function(){
         $http({
           url: '/getCart',

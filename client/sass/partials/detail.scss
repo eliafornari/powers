@@ -1,0 +1,130 @@
+
+
+.detail{
+  width:100vw;
+  position: relative;
+}
+
+.detail-images{
+  position: relative;
+  top:0;
+  .detail-images-single{
+    &:nth-child(1){
+      margin-top: 10vh;
+    }
+    .detail-img{
+      max-width: 20vw;
+      margin: auto;
+      display: block;
+      margin-top: 25vh;
+
+      @include respond-to(phone){
+        max-width: 70vw;
+      }
+    }
+  }
+}
+
+.detail-images.zoom{
+  width:100vw;
+  height:auto;
+  .detail-images-single{
+    width:100vw;
+    height:100vh;
+    img{
+      width: 80vw !important;
+      max-width: 80vw;
+    }
+  }
+}
+
+
+.detail-price{
+  position: fixed;
+  bottom: $margin-sides;
+  left: $margin-sides;
+  width: 80px;
+  height: 20px;
+  line-height: auto;
+  text-align: left;
+  z-index: $z-price;
+  color: $black;
+}
+
+
+
+.detail-functions{
+  position: fixed;
+  left: 50%;
+  bottom: $margin-sides;
+  width: 100px;
+  margin-left:-50px;
+  height: auto;
+  z-index: $z-shop-functions;
+  @include respond-to(phone-device){
+
+  }
+}
+
+
+
+.detail-add{
+  position: absolute;
+  bottom: 0;
+  height:auto;
+  width:100%;
+  margin:0;
+  display: inline-block;
+  p{
+    display: block;
+    width:100%;
+    text-align: center;
+    vertical-align: middle;
+    margin:0;
+    @include hover-effect-color($black, $green);
+    @include paragraph();
+
+  }
+}
+
+
+
+
+.detail-modifiers{
+  position: relative;
+  // top: $margin-top-paragraph;
+  display: inline-block;
+  margin-left:$margin-left-paragraph;
+  .detail-modifiers-ul{
+    display: block;
+    width:auto;
+    .detail-modifiers-ul-placeholder{
+      width:auto;
+      display: block;
+      float:left;
+      @include paragraph();
+    }
+    .detail-modifiers-variations{
+      width:auto;
+      display: block;
+      float:left;
+      margin-left: $margin-left-paragraph;
+      .detail-modifiers-variations-li{
+        display: block;
+        clear: both;
+        a{
+          @include paragraph();
+
+        }
+      }
+    }
+  }
+}
+
+
+
+.detail-back{
+  position: fixed;
+  top:$margin-sides;
+  left:$margin-sides;
+}

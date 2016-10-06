@@ -19,16 +19,6 @@ angular.module('myApp', [
 
 $rootScope.pageLoading = true;
 
-  $rootScope.showTime=false;
-  $rootScope.time="";
-  var date = new Date();
-  var n = date.toTimeString();
-  $rootScope.time = n;
-
-
-
-
-
 //a change of path should not reload the page
 
 
@@ -81,16 +71,17 @@ $sceProvider.enabled(false);
 
   // $locationChangeStart
 
-    .when('/shop/:product', {
-      // redirectTo: 'matthew30matthew30matthew'
-      templateUrl: 'views/shop.html',
-      controller: 'shopCtrl',
+    .when('/shop/:detail', {
+      templateUrl: 'views/detail.html',
+      controller: 'detailCtrl'
     })
 
-    .when('/shop', {
-      // redirectTo: 'matthew30matthew30matthew'
-      templateUrl: 'views/shop.html',
-      controller: 'shopCtrl',
+
+    .when('/about', {
+      templateUrl: 'views/contact.html'
+    })
+    .when('/contact', {
+      templateUrl: 'views/contact.html'
     })
 
     .when('/privacy', {
@@ -109,7 +100,7 @@ $sceProvider.enabled(false);
 
 
     .when('/', {
-      templateUrl: 'views/home.html',
+      templateUrl: 'views/shop.html',
       controller: 'appCtrl',
       resolve: {
 
@@ -181,15 +172,39 @@ $rootScope.pageClass = "page-home";
 
     $rootScope.getProductsFN=function(){
       $http({method: 'GET', url: '/getProducts'}).then(function(response){
-        console.log("response");
+        console.log("product: ");
         console.log(response);
         $rootScope.Product = response.data;
         console.log(response.data);
         $rootScope.pageLoading = false;
+        $rootScope.getGif();
       }).then(function(){
         console.log("an error occurred");
       })
     }
+
+    $rootScope.getGif=function(){
+      $http({method: 'GET', url: '/data/gif.json'}).then(function(response){
+        console.log(response);
+        $rootScope.Gif = response.data;
+        console.log(response.data);
+        $scope.associateGif();
+
+      });
+    }
+
+
+    $scope.associateGif = ()=>{
+      for (var i in $rootScope.Product){
+        for (var g in $rootScope.Gif){
+          if($rootScope.Product[i].slug==$rootScope.Gif[g].slug){
+            $rootScope.Product[i].gif = $rootScope.Gif[g];
+            console.log($rootScope.Product);
+          }
+        }
+      }
+    }
+
 
 
 
@@ -312,7 +327,6 @@ $rootScope.pageClass = "page-home";
 var jquerymousewheel = require('./vendor/jquery.mousewheel.js')($);
 var infiniteScroll = require("./vendor/infiniteScroll.js");
 var jqueryUI = require('./vendor/jquery-ui.min.js');
-var typed = require("./typed.js");
 var home = require("./home.js");
 var nav = require("./nav.js");
 var service = require("./services.js");

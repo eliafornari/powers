@@ -1,81 +1,68 @@
 
 .shop{
   width:100vw;
-  height:100vh;
-  @include respond-to(phone-device){
-    position: relative;
-  }
+  height:auto;
+  background-color: #FFFFFF;
+  position: relative;
 }
 
-.hvr-color{
-  @include hover-effect-color(#FFFFFF, #333333);
-}
-
-.hvr-color-fwrd{
-  @include hover-effect-color(#FFFFFF, #FF0000);
-}
 
 .shop-content{
   width:100vw;
-  height:100vh;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: hidden;
-  height: 100vh;
-  white-space:nowrap;
+  height:auto;
 }
 
-.shop-ul{
-  width:auto;
-  height:100vh;
+.product-ul{
+  width:100vw;
+  height:auto;
 
-  .shop-li{
-    padding-right: 15vw;
-    padding-left: 15vw;
-    width:auto;
+  .product-li{
+    width:50vw;
     height:100vh;
+    margin: auto;
     display:inline-block;
     position: relative;
     z-index: $z-shop-image;
-
-    &:nth-child(1){
-      padding-left: 40vw;
-    }
-
-    .shop-li-img{
-      max-width: 20vw;
+    .product-li-container{
+      position: relative;
+      width: 20vw;
       margin: auto;
-      display: block;
-
-      @include respond-to(phone){
-        max-width: 70vw;
+      .product-li-gif{
+        position: absolute;
+        width: 20vw;
+        left:0%;
+        top:0;
+        margin: auto;
+        display: block;
+      }
+      .product-li-blank{
+        max-width: 20vw;
+        margin: auto;
+        display: block;
       }
 
+      .product-li-img{
+        max-width: 20vw;
+        margin: auto;
+        display: block;
+
+        @include respond-to(phone){
+          max-width: 70vw;
+        }
+
+      }
     }
-    .shop-li-add{
+
+    .product-li-add{
       position: absolute;
       bottom:0;
       left:0;
       width:100%;
-
+      color: $black;
     }
   }
 }
 
-
-.shop-home{
-  position: absolute;
-  top: $margin-sides;
-  left:50%;
-  width:100px;
-  margin-left: -50px;
-  z-index:$z-back;
-  a{
-    width:100%;
-    display: block;
-    text-align: center;
-  }
-}
 
 
 
@@ -83,316 +70,49 @@
   position: fixed;
   top:50%;
   left:$margin-sides;
-  height:100px;
+  height:50px;
   margin-top: -25px;
   width:auto;
   z-index: $z-shop-dollar;
   a{
     position: relative;
     display: inline-block;
-    width:50px;
+    width:auto;
     height: 50px;
     line-height: 50px;
-    @include hover-effect-color(#FFFFFF, #333333);
+    .dollar-icon{
+      width:40px;
+      height:40px;
+      svg{
+        height:100%;
+        width:100%;
+      }
+
+    }
 
   }
   .dollar-contents{
     display: inline-block;
     position: relative;
-    color:#FFFFFF;
+    color:$black;
     display: inline-block;
-    top: -0;
+    top: 0;
   }
 }
 
 
-.shop-table-functions{
-  position: fixed;
-  left: 50%;
-  bottom: $margin-sides;
-  width: 100px;
-  margin-left:-50px;
-  height: auto;
-  z-index: $z-shop-functions;
-  @include respond-to(phone-device){
 
-  }
-}
-
-.detail-add{
-  position: relative;
-  height:auto;
-  width:auto;
-  margin:0;
-  display: inline-block;
-  p{
-    display: block;
-    text-align: center;
-    vertical-align: middle;
-    @include hover-effect-color(#FFFFFF, #333333);
-    @include paragraph();
-    text-align: right;
-    margin:0;
-  }
-}
-
-
-.detail-modifiers{
-  position: relative;
-  // top: $margin-top-paragraph;
-  display: inline-block;
-  margin-left:$margin-left-paragraph;
-  .detail-modifiers-ul{
-    display: block;
-    width:auto;
-    .detail-modifiers-ul-placeholder{
-      width:auto;
-      display: block;
-      float:left;
-      @include paragraph();
-    }
-    .detail-modifiers-variations{
-      width:auto;
-      display: block;
-      float:left;
-      margin-left: $margin-left-paragraph;
-      .detail-modifiers-variations-li{
-        display: block;
-        clear: both;
-        a{
-          @include paragraph();
-
-        }
-      }
-    }
-  }
-}
-
-.shop-product-info{
+.shop-price{
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 150px;
-  height: 40px;
-  margin-left: -75px;
-  margin-top: -20px;
-  .detail-price{
-    height: 20px;
-    width:150px;
-    line-height: 20px;
-    vertical-align: middle;
-    text-align: center;
-    z-index: $z-price;
-  }
-  .detail-name{
-    height: 20px;
-    width:150px;
-    line-height: 20px;
-    vertical-align: middle;
-    text-align: center;
-    z-index: $z-price;
-  }
-}
-
-.shop-preorder-message{
-  position: absolute;
-  bottom: $margin-sides;
-  right: $margin-sides;
-  width: auto;
-  height: auto;
-}
-
-
-
-.fullscreen{
-  width:100vw!important;
-  max-width:none !important;
-  position: fixed;
-  display: block;
-  height:100vh;
-  z-index:999999;
-  overflow:scroll;
-  -webkit-overflow-scrolling: touch;
-  top:0;
-  left:0;
-  padding-left:0 !important;
-  padding-right:0 !important;
-  margin:0;
-  img{
-    width:100vw !important;
-    max-width:none !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.page-shop{
-  background-color: #000000;
-}
-
-$page-animation-speed: 0.6s;
-$page-bezier: linear;
-
-.page-shop.ng-enter {
-  animation: cominUp $page-animation-speed $page-bezier;
-  -webkit-animation: cominUp $page-animation-speed $page-bezier;
-  -moz-animation: cominUp $page-animation-speed $page-bezier;
-  -ms-animation: cominUp $page-animation-speed $page-bezier;
-  -o-animation: cominUp $page-animation-speed $page-bezier;
-  // z-index: 10;
-}
-
-.page-shop.ng-leave {
-  position: fixed;
-  animation: cominDown $page-animation-speed linear;
-  -webkit-animation: cominDown $page-animation-speed $page-bezier;
-  -moz-animation: cominDown $page-animation-speed $page-bezier;
-  -ms-animation: cominDown $page-animation-speed $page-bezier;
-  -o-animation: cominDown $page-animation-speed $page-bezier;
-  // z-index: 9999999999999;
-}
-
-.page-home.ng-leave {
-  position: fixed;
-  animation: homeUp $page-animation-speed $page-bezier;
-  -webkit-animation: homeUp $page-animation-speed $page-bezier;
-  -moz-animation: homeUp $page-animation-speed $page-bezier;
-  -ms-animation: homeUp $page-animation-speed $page-bezier;
-  -o-animation: homeUp $page-animation-speed $page-bezier;
-  // z-index: 9999999999999;
-}
-
-.page-home.ng-enter {
-  position: fixed;
-  animation: homeDown $page-animation-speed $page-bezier;
-  -webkit-animation: homeDown $page-animation-speed $page-bezier;
-  -moz-animation: homeDown $page-animation-speed $page-bezier;
-  -ms-animation: homeDown $page-animation-speed $page-bezier;
-  -o-animation: homeDown $page-animation-speed $page-bezier;
-  // z-index: 9999999999999;
-}
-
-
-@keyframes cominUp {
-  0% { @include transform-element(translateY(100vh));}
-  100% { @include transform-element(translateY(0vh));}
-}
-
-@-webkit-keyframes cominUp {
-  0% { @include transform-element(translateY(100vh));}
-  100% { @include transform-element(translateY(0vh));}
-}
-
-@-moz-keyframes cominUp {
-  0% { @include transform-element(translateY(100vh));}
-  100% { @include transform-element(translateY(0vh));}
-}
-
-@-ms-keyframes cominUp {
-  0% { @include transform-element(translateY(100vh));}
-  100% { @include transform-element(translateY(0vh));}
-}
-
-@-o-keyframes cominUp {
-  0% { @include transform-element(translateY(100vh));}
-  100% { @include transform-element(translateY(0vh));}
-}
-
-
-
-@keyframes cominDown {
-  0% { @include transform-element(translateY(0vh)); }
-  100% { @include transform-element(translateY(100vh)); }
-}
-
-@-webkit-keyframes cominDown {
-  0% { @include transform-element(translateY(0vh)); }
-  100% { @include transform-element(translateY(100vh)); }
-}
-
-@-moz-keyframes cominDown {
-  0% { @include transform-element(translateY(0vh)); }
-  100% { @include transform-element(translateY(100vh)); }
-}
-
-@-ms-keyframes cominDown {
-  0% { @include transform-element(translateY(0vh)); }
-  100% { @include transform-element(translateY(100vh)); }
-}
-
-@-o-keyframes cominDown {
-  0% { @include transform-element(translateY(0vh)); }
-  100% { @include transform-element(translateY(100vh)); }
-}
-
-
-
-
-@keyframes homeUp {
-  0% { @include transform-element(translateY(0vh));}
-  100% { @include transform-element(translateY(-100vh));}
-}
-
-@-webkit-keyframes homeUp {
-  0% { @include transform-element(translateY(0vh));}
-  100% { @include transform-element(translateY(-100vh));}
-}
-
-@-moz-keyframes homeUp {
-  0% { @include transform-element(translateY(0vh));}
-  100% { @include transform-element(translateY(-100vh));}
-}
-
-@-ms-keyframes homeUp {
-  0% { @include transform-element(translateY(0vh));}
-  100% { @include transform-element(translateY(-100vh));}
-}
-
-
-
-@-o-keyframes homeDown {
-  0% { @include transform-element(translateY(-100vh)); }
-  100% { @include transform-element(translateY(0vh)); }
-}
-
-@keyframes homeDown {
-  0% { @include transform-element(translateY(-100vh)); }
-  100% { @include transform-element(translateY(0vh)); }
-}
-
-@-webkit-keyframes homeDown {
-  0% { @include transform-element(translateY(-100vh)); }
-  100% { @include transform-element(translateY(0vh)); }
-}
-
-@-moz-keyframes homeDown {
-  0% { @include transform-element(translateY(-100vh)); }
-  100% { @include transform-element(translateY(0vh)); }
-}
-
-@-ms-keyframes homeDown {
-  0% { @include transform-element(translateY(-100vh)); }
-  100% { @include transform-element(translateY(0vh)); }
-}
-
-@-o-keyframes homeDown {
-  0% { @include transform-element(translateY(-100vh)); }
-  100% { @include transform-element(translateY(0vh)); }
+  width: 80px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: 20px;
+  text-align: center;
+  margin-left: -25px;
+  margin-top: -10px;
+  z-index: $z-price;
+  color: $black;
 }

@@ -11,10 +11,10 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=0">
-  <title>delantic</title>
+  <title>POWERS</title>
+  <link rel="alternate" hreflang="en" href="http://powers.supply/" />
 
 
-<meta name="google-site-verification" content="">
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="msapplication-TileImage" content="https://powers.supply/client/assets/images/profile.jpg">
 
@@ -35,8 +35,6 @@
 <meta property="og:description" content="delantic">
 <meta property="og:url" content="https://powers.supply/">
 <meta property="og:site_name" content="delantic">
-
-
 
 
 
@@ -61,46 +59,54 @@
 
   <base href="/">
 
-  <!-- .........................<span app-version></span> ....................-->
 
-  <script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+      ga('create', 'UA-82429357-1', 'auto');
+      ga('send', 'pageview');
+    </script>
 
-  </script>
+    <meta name="google-site-verification" content="lCTbMx34XwlV2JvL2rcZ2YMuCEQ4_V-FZE9WbznixZw" />
 </head>
 
 
 
 <!-- .................................. Body ...............................-->
 
-<body>
+<body ng-controller="shopCtrl">
 
 
 
-  <!-- <nav-directive></nav-directive>
+  <nav-directive></nav-directive>
 
   <div ng-show="pageLoading" class="page-loader-div">
     <div class="loading-logo">
     </div>
   </div>
 
+  <div class="dollar" ng-cloak>
+    <a ng-click="openCart()">
+      <div class="dollar-icon">
+        <carticon-directive></carticon-directive>
+      </div>
+      <p class="dollar-contents" ng-cloak>{{Cart.total_items}}</p>
+    </a>
+  </div>
+
 
   <div class="clickOut" ng-click="closeCart()" ng-show="showCart" ng-cloak>
+    <p>close</p>
   </div>
 
   <div class="cart" ng-include="template.url" ng-show="showCart" ng-controller="cartCtrl">
-  </div> -->
-
-
-  <div class="wrap" ng-controller="homeCtrl">
-      <div class="type-wrap">
-              <div id="typed-strings">
-                  <p>DELANTIC</p>
-              </div>
-              <span id="typed" style="white-space:pre;"></span>
-          </div>
   </div>
-  <!-- <main ng-view class="main {{pageClass}}" autoscroll="true"></main> -->
+
+
+  <main ng-view class="main {{pageClass}}" autoscroll="true"></main>
 
 
 

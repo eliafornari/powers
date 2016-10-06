@@ -1,63 +1,38 @@
-<div class="shop" ng-ctrl="shopCtrl">
-
-    <div class="shop-home" ng-click="closeCart()"><a href="/">gallery</a></div>
-
-    <div class="shop-content">
-      <ul class="shop-ul">
-        <li class="shop-li" ng-repeat="d in Detail.images" ng-init="full=false" ng-click="full=!full; full ? stopWheel_shop() : startWheel_shop()" ng-class="{'fullscreen': full}">
-          <table>
-            <tr>
-              <td>
-                <img class="shop-li-img" src="{{d.url.http}}" alt="Detail.description" />
-                <!-- <a class="shop-li-add" ng-click="addToCart()">add</a> -->
-              </td>
-            </tr>
-          </table>
-        </li>
-        <li class="shop-li infinite-loader" infinite-scroll="nextPage_shop()"  infinite-scroll-distance="1"></li>
-      </ul>
-    </div>
+<div class="shop">
 
 
-    <div class="dollar" ng-cloak>
-      <a ng-click="openCart()">cart</a>
-      <p class="dollar-contents" ng-cloak>{{Cart.total_items}}</p>
-    </div>
 
-<div class="shop-product-info">
-  <p class="detail-name">{{Detail.title}}</p>
-  <p class="detail-price" ng-cloak>{{Detail.price.data.formatted.without_tax}}</p>
-</div>
+      <div class="shop-content">
+        <ul class="product-ul">
+          <li class="product-li" ng-repeat="p in Product" ng-click="openDetailFN(p.slug)" ng-mouseenter="showGif=true" ng-mouseleave="showGif=false">
+            <table>
+              <tr>
+                <td>
+                  <div class="product-li-container">
+                    <img class="product-li-gif" src="{{p.gif.url}}" alt="{{p.description}}" loop="infinite"  ng-show="showGif"/>
+                    <!-- -->
+                    <img class="product-li-img" src="{{p.images[0].url.http}}" alt="{{p.description}}" ng-hide="showGif"/>
 
-<div class="shop-preorder-message">
-  <p>
-    pre order
-    (2-3 weeks)
-  </p>
+                    <img class="product-li-blank" src="{{p.gif.blank}}" alt="{{p.description}}" ng-show="showGif"/>
+                    <!-- <a class="shop-li-add" ng-click="addToCart()">add</a> -->
+                    <!-- <p class="product-price" ng-cloak>{{p.price.data.formatted.without_tax}}</p> -->
+                  </div>
 
-</div>
-    <!-- {{thisVariation}} -->
+                </td>
+              </tr>
+            </table>
+            <!-- <div class="product-add">
+              <p class="product-add-plus-variation hvr-bob" ng-click="addToCart(p.id)">ADD</p>
+              <p class="detail-add-plus-variation hvr-bob" ng-show="Detail.has_variation" ng-click="addVariation()" ng-class="{'activeAdd': howManyVAriationsSelected>=Detail.total_variations}">ADD</p>
+            </div> -->
 
-    <p class="detail-error" ng-show="variationErrorMessage">{{variationErrorMessage}}</p>
+          </li>
+          <li class="shop-li infinite-loader" infinite-scroll="nextPage_shop()"  infinite-scroll-distance="1"></li>
+        </ul>
 
-    <div class="shop-table-functions">
-      <div class="detail-add">
-        <!-- <p class="detail-add-plus-variation hvr-bob" ng-hide="Detail.has_variation" ng-click="addToCart(Detail.id)">ADD</p> -->
-        <p class="detail-add-plus-variation hvr-bob" ng-show="Detail.has_variation" ng-click="addVariation()" ng-class="{'activeAdd': howManyVAriationsSelected>=Detail.total_variations}">ADD</p>
       </div>
 
-        <div class="detail-modifiers">
-          <ul class="detail-modifiers-ul" ng-repeat="m in Detail.modifiers">
-            <p class="detail-modifiers-ul-placeholder" ng-click="showSelection(m.id)">{{m.title}} </p>
 
-            <div class="detail-modifiers-variations" ng-click="showSelection(m.id)">
-              <li class="detail-modifiers-variations-li" ng-repeat="v in m.variations" ng-click="thisVariation(Detail.id , m.id, m.title, v.id, v.title);" ng-show="selectedVariation[m.id].variation_title==v.title || m.open==true">
-                <a>{{v.title}}</a>
-              </li>
-            </div>
-          </ul>
-        </div>
-    </div>
 
 
 

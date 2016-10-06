@@ -281,17 +281,20 @@ $transition-slow: 1s;
   font-size: $font-size-h1;
   line-height: $line-height-h1;
   font-family: $font-family-h1;
+    font-weight: 900;
 }
 @mixin h2(){
   font-size: $font-size-h2;
   line-height: $line-height-h2;
   font-family: $font-family-h2;
+    font-weight: 900;
 }
 
 @mixin paragraph(){
   font-size: $font-size-paragraph;
   line-height: $line-height-paragraph;
   font-family: $font-family-paragraph;
+    font-weight: 900;
 }
 
 @mixin raised($opacity, $horizontal-initial: 2px, $vertical-initial:2px,$horizontal-final: 6px, $vertical-final:6px, $thickness-initial:10px, $thickness-final:10px){

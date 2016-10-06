@@ -14,6 +14,20 @@ angular.module('myApp')
     $rootScope.isNavOpen = false;
   }
 
+
+  $rootScope.isLocation= (location)=>{
+    if ($location.path()==location){
+      return true;
+    }else{return false;}
+  }
+
+  $rootScope.isShopDetail = ()=>{
+    if($location.path()=='/shop/'+$routeParams.detail){
+      return true;
+    }else{return false;}
+
+  }
+
 })
 
 
@@ -28,10 +42,10 @@ angular.module('myApp')
   };
 })
 
-.directive('logoBlackDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
+.directive('carticonDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
   return {
     restrict: 'E',
-    templateUrl: 'views/icon/logo-black.html',
+    templateUrl: 'views/icon/cart-icon.html',
     replace: true,
     link: function(scope, elem, attrs) {
 
@@ -49,34 +63,6 @@ angular.module('myApp')
     }
   };
 })
-
-
-
-.directive('mailDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
-  return {
-    restrict: 'E',
-    templateUrl: 'views/icon/mail-icon.html',
-    replace: true,
-    link: function(scope, elem, attrs) {
-
-    }
-  };
-})
-
-
-
-
-.directive('menuIconDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
-  return {
-    restrict: 'E',
-    templateUrl: 'views/icon/menu-icon.html',
-    replace: true,
-    link: function(scope, elem, attrs) {
-
-    }
-  };
-})
-
 
 
 
