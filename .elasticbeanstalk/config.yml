@@ -1,0 +1,11 @@
+branch-defaults:
+  staging:
+    environment: development-powers
+    group_suffix: null
+global:
+  application_name: powers
+  default_ec2_keyname: powers-keypair
+  default_platform: Node.js
+  default_region: us-west-2
+  profile: eliafornari
+  sc: git

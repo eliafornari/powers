@@ -359,6 +359,36 @@ main {
 [x-ng-click] {
   cursor: pointer; }
 
+.home {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: #FFFFFF;
+  z-index: 9; }
+  .home .home-logo {
+    width: 400px;
+    height: 400px;
+    margin: auto; }
+    .home .home-logo svg {
+      width: 100%;
+      height: 100%; }
+
+.coming-soon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -15px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  line-height: 30px;
+  font-family: helvetica;
+  z-index: 1;
+  color: #FFFFFF;
+  text-align: center; }
+
 .shop {
   width: 100vw;
   height: 100vh;
