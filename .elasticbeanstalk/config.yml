@@ -1,4 +1,6 @@
 branch-defaults:
+  master:
+    environment: production-powers
   staging:
     environment: development-powers
     group_suffix: null
