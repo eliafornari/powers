@@ -117,6 +117,69 @@ $break-desktop: 50000px;
             }
           }
       }
+  } @else if $type == 'ex' {
+      rect{
+        fill: $color;
+        transition:         fill $transition-medium ease;
+        -webkit-transition: fill $transition-medium ease;
+        -moz-transition:    fill $transition-medium ease;
+        -ms-transition:     fill $transition-medium ease;
+        -o-transition:      fill $transition-medium ease;
+      }
+      polygon{
+        fill:$hover;
+      }
+
+      &:hover {
+          rect{
+            fill: $hover !important;
+            @include respond-to(phone-device) {
+                fill: $color !important;
+            }
+            @include respond-to(tablet-portrait-device) {
+                fill: $color !important;
+            }
+            @include respond-to(tablet-landscape-device) {
+                fill: $color !important;
+            }
+          }
+          polygon{
+            fill: $color !important;
+            @include respond-to(phone-device) {
+                fill: $color !important;
+            }
+            @include respond-to(tablet-portrait-device) {
+                fill: $color !important;
+            }
+            @include respond-to(tablet-landscape-device) {
+                fill: $color !important;
+            }
+          }
+      }
+  }@else if $type == 'arrow' {
+      rect{
+        // width: $color;
+        transition:         width $transition-medium ease;
+        -webkit-transition: width $transition-medium ease;
+        -moz-transition:    width $transition-medium ease;
+        -ms-transition:     width $transition-medium ease;
+        -o-transition:      width $transition-medium ease;
+      }
+
+      &:hover {
+          polygon{
+            width: 100vw !important;
+            @include respond-to(phone-device) {
+                width: auto !important;
+            }
+            @include respond-to(tablet-portrait-device) {
+                width: auto !important;
+            }
+            @include respond-to(tablet-landscape-device) {
+                width: auto !important;
+            }
+          }
+      }
   }
 }
 
@@ -195,11 +258,11 @@ $transition-slow: 1s;
 
 @mixin hover-effect-background-color($color, $hover){
   background-color: $color;
-  transition:         background-color $transition-slow ease;
-  -webkit-transition: background-color $transition-slow ease;
-  -moz-transition:    background-color $transition-slow ease;
-  -ms-transition:     background-color $transition-slow ease;
-  -o-transition:      background-color $transition-slow ease;
+  transition:         background-color $transition-medium ease;
+  -webkit-transition: background-color $transition-medium ease;
+  -moz-transition:    background-color $transition-medium ease;
+  -ms-transition:     background-color $transition-medium ease;
+  -o-transition:      background-color $transition-medium ease;
 
   &:hover {
     background-color: $hover;

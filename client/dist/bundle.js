@@ -17,8 +17,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 angular.module('myApp', ['ngRoute', 'ngResource', 'ngAnimate', 'infinite-scroll']).run(['$anchorScroll', '$route', '$rootScope', '$location', '$routeParams', '$templateCache', function ($anchorScroll, $route, $rootScope, $location, $routeParams, $templateCache) {
 
-  $rootScope.pageLoading = true;
-
   //a change of path should not reload the page
 
   var original = $location.path;
@@ -76,7 +74,6 @@ angular.module('myApp', ['ngRoute', 'ngResource', 'ngAnimate', 'infinite-scroll'
 
   .when('/', {
     templateUrl: 'views/shop.html',
-    controller: 'appCtrl',
     resolve: {}
 
   })
@@ -90,33 +87,7 @@ angular.module('myApp', ['ngRoute', 'ngResource', 'ngAnimate', 'infinite-scroll'
   $rootScope.Story, $rootScope.totalPages;
   $rootScope.pageClass = "page-home";
 
-  $rootScope.Auth;
-  $rootScope.authentication = function () {
-
-    // Simple GET request example:
-    $http({
-      method: 'GET',
-      url: '/authenticate'
-    }).then(function successCallback(response) {
-
-      if (response.data.access_token) {
-        console.log("auth");
-        console.log(response);
-        // this callback will be called asynchronously
-        // when the response is available
-        $rootScope.Auth = response.data;
-        var expires = response.data.expires;
-        var identifier = response.data.identifier;
-        var expires_in = response.data.expires_in;
-        var access_token = response.data.access_token;
-        var type = response.data.token_type;
-      }
-      $rootScope.getProductsFN();
-    }, function errorCallback(response) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-    });
-  }; //addToCart
+  $rootScope.pageLoading = true;
 
   $rootScope.getProductsFN = function () {
     $http({ method: 'GET', url: '/getProducts' }).then(function (response) {
@@ -130,6 +101,7 @@ angular.module('myApp', ['ngRoute', 'ngResource', 'ngAnimate', 'infinite-scroll'
       console.log("an error occurred");
     });
   };
+  $rootScope.getProductsFN();
 
   $rootScope.getGif = function () {
     $http({ method: 'GET', url: '/data/gif.json' }).then(function (response) {
@@ -150,10 +122,6 @@ angular.module('myApp', ['ngRoute', 'ngResource', 'ngAnimate', 'infinite-scroll'
       }
     }
   };
-
-  setTimeout(function () {
-    $rootScope.authentication();
-  }, 600);
 
   $rootScope.windowHeight = $window.innerHeight;
 
@@ -232,7 +200,6 @@ angular.module('myApp', ['ngRoute', 'ngResource', 'ngAnimate', 'infinite-scroll'
     if ($rootScope.isMobile == true) {
       if (window.innerHeight < window.innerWidth) {
         $rootScope.landscapeView = true;
-        $rootScope.pageLoading = true;
         $(".landscape-view-wrapper").css({
           "width": "100vw",
           "height": "100vh",
@@ -240,7 +207,6 @@ angular.module('myApp', ['ngRoute', 'ngResource', 'ngAnimate', 'infinite-scroll'
         });
       } else {
         $rootScope.landscapeView = false;
-        $rootScope.pageLoading = false;
       }
     }
   };
@@ -321,7 +287,28 @@ angular.module('myApp').controller('navCtrl', function ($scope, $location, $root
 }).directive('carticonDirective', function ($rootScope, $location, $window, $routeParams, $timeout) {
   return {
     restrict: 'E',
-    templateUrl: 'views/icon/cart-icon.html',
+    templateUrl: 'views/icon/fuck-cart.html',
+    replace: true,
+    link: function link(scope, elem, attrs) {}
+  };
+}).directive('nosecartDirective', function ($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/nose-cart.html',
+    replace: true,
+    link: function link(scope, elem, attrs) {}
+  };
+}).directive('dollarDirective', function ($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/dollar.html',
+    replace: true,
+    link: function link(scope, elem, attrs) {}
+  };
+}).directive('arrowDirective', function ($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/arrow.html',
     replace: true,
     link: function link(scope, elem, attrs) {}
   };
@@ -329,6 +316,20 @@ angular.module('myApp').controller('navCtrl', function ($scope, $location, $root
   return {
     restrict: 'E',
     templateUrl: 'views/icon/ex.html',
+    replace: true,
+    link: function link(scope, elem, attrs) {}
+  };
+}).directive('cardDirective', function ($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/cards.html',
+    replace: true,
+    link: function link(scope, elem, attrs) {}
+  };
+}).directive('plusDirective', function ($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/plus.html',
     replace: true,
     link: function link(scope, elem, attrs) {}
   };
@@ -781,10 +782,10 @@ Checkout.controller('checkoutCtrl', function ($scope, $location, $rootScope, $ti
 
     console.log('country: ' + $rootScope.checkout.shipment.country);
     if ($rootScope.checkout.shipment.country == 'US') {
-      $rootScope.checkout.shipment_method = '1301792307242074821';
+      $rootScope.checkout.shipment_method = '1334498086495453432';
       console.log('US');
     } else {
-      $rootScope.checkout.shipment_method = '1314165476770709929';
+      $rootScope.checkout.shipment_method = '1410240011105730605';
       console.log('INT');
     }
   }, true);
@@ -880,9 +881,12 @@ Shop.controller('detailCtrl', function ($scope, $location, $rootScope, $routePar
 
   //......VARIATIONS
 
+  $scope.addActive = false;
+
   $rootScope.addVariation = function () {
 
     if ($rootScope.selectedVariation) {
+      $scope.addActive = true;
       $http({
         url: '/addVariation',
         method: 'POST',
@@ -896,10 +900,16 @@ Shop.controller('detailCtrl', function ($scope, $location, $rootScope, $routePar
       }).then(function (response) {
         // $rootScope.Cart = response;
         $rootScope.updateCart();
+
+        setTimeout(function () {
+          $scope.addActive = false;
+          $rootScope.$apply();
+        }, 1000);
         console.log(response);
       });
     } else {
       $scope.variationErrorMessage = "select a size first";
+      $scope.addActive = false;
       setTimeout(function () {
         $scope.variationErrorMessage = false;
         $rootScope.$apply();

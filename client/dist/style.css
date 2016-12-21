@@ -101,89 +101,103 @@ table {
 
 .logo {
   position: fixed;
-  left: 20px;
+  left: 50%;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  margin-left: -25px;
+  z-index: 15; }
+  .logo a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+    .logo a svg {
+      width: 100%;
+      height: 100%; }
+
+@-ms-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@-moz-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+.logo.loading {
   top: 50%;
-  height: 17px;
-  width: 100px;
-  margin-top: -8.5px;
-  z-index: 15;
-  /*  @if $media == large-desktop {
-      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-    }*/ }
-  @media only screen and (min-width: 0px) and (max-width: 767px) {
-    .logo {
-      width: 100px;
-      left: 10px; } }
-  .logo svg {
-    width: 100px;
-    height: 100%;
-    /*  @if $media == large-desktop {
-        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-      }*/ }
-    @media only screen and (min-width: 0px) and (max-width: 767px) {
-      .logo svg {
-        width: 100%; } }
+  margin-top: -25px;
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite; }
 
-@keyframes go_left {
-  from {
-    left: 50%; }
-  to {
-    left: 20px; } }
-@-webkit-keyframes go_left {
-  from {
-    left: 50%; }
-  to {
-    left: 20px; } }
-@-moz-keyframes go_left {
-  from {
-    left: 50%; }
-  to {
-    left: 20px; } }
-@-o-keyframes go_left {
-  from {
-    left: 50%; }
-  to {
-    left: 20px; } }
-@-ms-keyframes go_left {
-  from {
-    left: 50%; }
-  to {
-    left: 20px; } }
-.moved.ng-moved-remove.ng-moved-remove-active {
-  -webkit-animation: go_left 0.6s linear;
-  -moz-animation: go_left 0.6s linear;
-  -ms-animation: go_left 0.6s linear;
-  -o-animation: go_left 0.6s linear;
-  animation: go_left 0.6s linear; }
+.logo.loading-remove.loading-active {
+  -webkit-animation: all 2s linear;
+  -moz-animation: all 2s linear;
+  -ms-animation: all 2s linear;
+  -o-animation: all 2s linear;
+  animation: all 2s linear; }
 
-.moved.ng-moved-add.ng-moved-add-active {
-  -webkit-animation: go_left 0.6s linear;
-  -moz-animation: go_left 0.6s linear;
-  -ms-animation: go_left 0.6s linear;
-  -o-animation: go_left 0.6s linear;
-  animation: go_left 0.6s linear; }
-
-@keyframes increasing-animation {
-  to {
-    font-size: 100vw; } }
-@-webkit-keyframes increasing-animation {
-  to {
-    font-size: 100vw; } }
-@-moz-keyframes increasing-animation {
-  to {
-    font-size: 100vw; } }
-@-o-keyframes increasing-animation {
-  to {
-    font-size: 100vw; } }
-@-ms-keyframes increasing-animation {
-  to {
-    font-size: 100vw; } }
-.increasing {
-  animation: increasing-animation 10s;
-  -webkit-animation: increasing-animation 10s;
-  -o-animation: increasing-animation 10s;
-  -ms-animation: increasing-animation 10s;
-  -moz-animation: increasing-animation 10s; }
+/*.............................Loader............................*/
+.page-loader-div {
+  display: block;
+  height: 100vh;
+  display: block;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  display: list-item;
+  background-color: transparent;
+  z-index: 14;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 0;
+  left: 0; }
 
 /*....................................General settings..................................*/
 /*.....................TEXT MARK STYLES......................*/
@@ -314,7 +328,6 @@ main {
   list-style-type: none;
   display: table; }
 
-/*.............................Loader............................*/
 /*.............................NG-CLOAK............................*/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
@@ -335,10 +348,12 @@ main {
   height: auto; }
 
 .product-ul {
-  width: 100vw;
-  height: auto; }
+  width: 90vw;
+  height: auto;
+  display: block;
+  margin: auto; }
   .product-ul .product-li {
-    width: 50vw;
+    width: 45vw;
     height: 100vh;
     margin: auto;
     display: inline-block;
@@ -346,21 +361,21 @@ main {
     z-index: 10; }
     .product-ul .product-li .product-li-container {
       position: relative;
-      width: 20vw;
+      width: 25vw;
       margin: auto; }
       .product-ul .product-li .product-li-container .product-li-gif {
         position: absolute;
-        width: 20vw;
+        width: 25vw;
         left: 0%;
         top: 0;
         margin: auto;
         display: block; }
       .product-ul .product-li .product-li-container .product-li-blank {
-        max-width: 20vw;
+        max-width: 25vw;
         margin: auto;
         display: block; }
       .product-ul .product-li .product-li-container .product-li-img {
-        max-width: 20vw;
+        max-width: 25vw;
         margin: auto;
         display: block;
         /*  @if $media == large-desktop {
@@ -375,33 +390,6 @@ main {
       left: 0;
       width: 100%;
       color: #000000; }
-
-.dollar {
-  position: fixed;
-  top: 50%;
-  left: 20px;
-  height: 50px;
-  margin-top: -25px;
-  width: auto;
-  z-index: 11; }
-  .dollar a {
-    position: relative;
-    display: inline-block;
-    width: auto;
-    height: 50px;
-    line-height: 50px; }
-    .dollar a .dollar-icon {
-      width: 40px;
-      height: 40px; }
-      .dollar a .dollar-icon svg {
-        height: 100%;
-        width: 100%; }
-  .dollar .dollar-contents {
-    display: inline-block;
-    position: relative;
-    color: #000000;
-    display: inline-block;
-    top: 0; }
 
 .shop-price {
   position: absolute;
@@ -427,7 +415,7 @@ main {
   .detail-images .detail-images-single:nth-child(1) {
     margin-top: 10vh; }
   .detail-images .detail-images-single .detail-img {
-    max-width: 20vw;
+    max-width: 40vw;
     margin: auto;
     display: block;
     margin-top: 25vh;
@@ -461,59 +449,33 @@ main {
 
 .detail-functions {
   position: fixed;
-  left: 50%;
-  bottom: 20px;
-  width: 100px;
-  margin-left: -50px;
+  right: 20px;
+  top: 50%;
+  width: auto;
   height: auto;
-  z-index: 11;
-  /*  @if $media == large-desktop {
-      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-    }*/ }
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  /* IE 9 */
+  -webkit-transform: translateY(-50%);
+  /* Safari */
+  transform-origin: 0 0;
+  z-index: 11; }
 
 .detail-add {
-  position: absolute;
-  bottom: 0;
-  height: auto;
-  width: 100%;
-  margin: 0;
-  display: inline-block; }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 90px;
+  width: 90px;
+  display: block;
+  cursor: pointer; }
   .detail-add p {
-    display: block;
-    width: 100%;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0;
-    color: #000000;
-    transition: color 0.4s ease;
-    -webkit-transition: color 0.4s ease;
-    -moz-transition: color 0.4s ease;
-    -ms-transition: color 0.4s ease;
-    -o-transition: color 0.4s ease;
-    font-size: 18px;
-    line-height: 26px;
-    font-family: helvetica;
-    font-weight: 900; }
-    .detail-add p:hover {
-      color: #009900;
-      /*  @if $media == large-desktop {
-          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-        }*/
-      /*  @if $media == large-desktop {
-          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-        }*/
-      /*  @if $media == large-desktop {
-          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-        }*/ }
-      @media only screen and (min-width: 0px) and (max-device-width: 767px) {
-        .detail-add p:hover {
-          color: #000000 !important; } }
-      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
-        .detail-add p:hover {
-          color: #000000 !important; } }
-      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
-        .detail-add p:hover {
-          color: #000000 !important; } }
+    height: 100%;
+    width: 100%; }
+    .detail-add p svg {
+      height: 100%;
+      width: 100%;
+      display: block; }
 
 .detail-modifiers {
   position: relative;
@@ -542,18 +504,96 @@ main {
           font-size: 18px;
           line-height: 26px;
           font-family: helvetica;
-          font-weight: 900; }
+          font-weight: 900;
+          color: #000000;
+          transition: color 0.4s ease;
+          -webkit-transition: color 0.4s ease;
+          -moz-transition: color 0.4s ease;
+          -ms-transition: color 0.4s ease;
+          -o-transition: color 0.4s ease; }
+          .detail-modifiers .detail-modifiers-ul .detail-modifiers-variations .detail-modifiers-variations-li a:hover {
+            color: #009900;
+            /*  @if $media == large-desktop {
+                @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+              }*/
+            /*  @if $media == large-desktop {
+                @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+              }*/
+            /*  @if $media == large-desktop {
+                @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+              }*/ }
+            @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+              .detail-modifiers .detail-modifiers-ul .detail-modifiers-variations .detail-modifiers-variations-li a:hover {
+                color: #000000 !important; } }
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+              .detail-modifiers .detail-modifiers-ul .detail-modifiers-variations .detail-modifiers-variations-li a:hover {
+                color: #000000 !important; } }
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+              .detail-modifiers .detail-modifiers-ul .detail-modifiers-variations .detail-modifiers-variations-li a:hover {
+                color: #000000 !important; } }
 
 .detail-back {
   position: fixed;
   top: 20px;
-  left: 20px; }
+  left: 20px;
+  width: 100px;
+  height: 100px; }
+  .detail-back svg {
+    height: 100%;
+    width: 100%;
+    display: block; }
+    .detail-back svg rect {
+      transition: width 0.4s ease;
+      -webkit-transition: width 0.4s ease;
+      -moz-transition: width 0.4s ease;
+      -ms-transition: width 0.4s ease;
+      -o-transition: width 0.4s ease; }
+    .detail-back svg:hover polygon {
+      width: 100vw !important;
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/ }
+      @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+        .detail-back svg:hover polygon {
+          width: auto !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+        .detail-back svg:hover polygon {
+          width: auto !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+        .detail-back svg:hover polygon {
+          width: auto !important; } }
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(180deg); }
+  to {
+    -webkit-transform: rotate(0deg); } }
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(180deg); }
+  to {
+    -moz-transform: rotate(0deg); } }
+.detail-add.rotate {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-iteration-count: 2;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-iteration-count: 2;
+  -moz-animation-timing-function: linear; }
 
 .cart {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  left: 0;
+  left: 0vw;
   top: 0;
   z-index: 13;
   background-color: #FFFFFF;
@@ -571,25 +611,60 @@ main {
       margin: 0;
       left: 0; } }
 
+.dollar {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  height: 100px;
+  margin-top: -50px;
+  width: auto;
+  z-index: 11; }
+  .dollar a {
+    position: relative;
+    display: block;
+    width: auto;
+    height: 100px; }
+    .dollar a .dollar-icon {
+      width: 100px;
+      height: 100px; }
+      .dollar a .dollar-icon svg {
+        height: 100%;
+        width: 100%; }
+  .dollar .dollar-contents {
+    display: block;
+    position: absolute;
+    color: #FFFFFF;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: middle; }
+
 .clickOut {
   position: fixed;
-  background: transparent;
-  bottom: 20px;
-  left: 50%;
-  margin-left: -100px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
   width: 100px;
-  height: auto;
+  height: 100px;
   z-index: 14; }
-  .clickOut p {
+  .clickOut svg {
     width: 100%;
-    color: #000000;
-    transition: color 0.4s ease;
-    -webkit-transition: color 0.4s ease;
-    -moz-transition: color 0.4s ease;
-    -ms-transition: color 0.4s ease;
-    -o-transition: color 0.4s ease; }
-    .clickOut p:hover {
-      color: #009900;
+    height: 100%;
+    margin-left: 0%; }
+    .clickOut svg rect {
+      fill: #FFFFFF;
+      transition: fill 0.4s ease;
+      -webkit-transition: fill 0.4s ease;
+      -moz-transition: fill 0.4s ease;
+      -ms-transition: fill 0.4s ease;
+      -o-transition: fill 0.4s ease; }
+    .clickOut svg polygon {
+      fill: #000000; }
+    .clickOut svg:hover rect {
+      fill: #000000 !important;
       /*  @if $media == large-desktop {
           @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
         }*/
@@ -600,31 +675,54 @@ main {
           @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
         }*/ }
       @media only screen and (min-width: 0px) and (max-device-width: 767px) {
-        .clickOut p:hover {
-          color: #000000 !important; } }
+        .clickOut svg:hover rect {
+          fill: #FFFFFF !important; } }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
-        .clickOut p:hover {
-          color: #000000 !important; } }
+        .clickOut svg:hover rect {
+          fill: #FFFFFF !important; } }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
-        .clickOut p:hover {
-          color: #000000 !important; } }
+        .clickOut svg:hover rect {
+          fill: #FFFFFF !important; } }
+    .clickOut svg:hover polygon {
+      fill: #FFFFFF !important;
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/ }
+      @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+        .clickOut svg:hover polygon {
+          fill: #FFFFFF !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+        .clickOut svg:hover polygon {
+          fill: #FFFFFF !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+        .clickOut svg:hover polygon {
+          fill: #FFFFFF !important; } }
 
 .cart-contents {
   height: 100%; }
 
 .cart-ul {
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: relative;
   width: 50vw;
+  margin: auto;
   height: auto;
-  overflow: scroll; }
+  overflow: scroll;
+  padding-top: 200px; }
   .cart-ul .cart-li {
     width: 100%;
     display: block;
     height: 70px;
     position: relative;
     margin-top: 40px; }
+    .cart-ul .cart-li .cart-li-img {
+      height: 70px;
+      float: left; }
     .cart-ul .cart-li .cart-li-text {
       float: left;
       margin-left: 20px; }
@@ -651,12 +749,11 @@ main {
       font-weight: 900; }
 
 .cart-total {
-  position: absolute;
-  left: 50px;
-  bottom: 100px;
-  height: auto;
-  width: auto;
-  margin-bottom: 20px; }
+  position: relative;
+  width: 50vw;
+  margin: auto;
+  margin-top: 40px;
+  padding-bottom: 200px; }
   .cart-total .cart-total-tax {
     font-size: 18px;
     line-height: 26px;
@@ -675,48 +772,97 @@ main {
   font-weight: 900;
   color: #FFFFFF; }
 
-.checkout-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  text-align: center;
-  height: 100vh;
-  line-height: 100vh;
-  font-size: 35px;
-  line-height: 50px;
+.form-subtitle {
+  font-size: 20px;
+  line-height: 30px;
   font-family: helvetica;
   font-weight: 900;
-  color: #000000;
-  transition: color 0.4s ease;
-  -webkit-transition: color 0.4s ease;
-  -moz-transition: color 0.4s ease;
-  -ms-transition: color 0.4s ease;
-  -o-transition: color 0.4s ease;
+  color: #FFFFFF;
+  background-color: #000000;
+  text-align: center; }
+
+.checkout-button {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  text-align: center;
+  height: 20vw;
+  width: 20vw;
   background-color: #FFFFFF;
+  cursor: pointer;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  /* IE 9 */
+  -webkit-transform: translateY(-50%);
+  /* Safari */
+  transform-origin: 0 0;
   border: 0;
-  outline: 0;
-  cursor: pointer; }
-  .checkout-button:hover {
-    color: #009900;
-    /*  @if $media == large-desktop {
-        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-      }*/
-    /*  @if $media == large-desktop {
-        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-      }*/
-    /*  @if $media == large-desktop {
-        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
-      }*/ }
-    @media only screen and (min-width: 0px) and (max-device-width: 767px) {
-      .checkout-button:hover {
-        color: #000000 !important; } }
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
-      .checkout-button:hover {
-        color: #000000 !important; } }
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
-      .checkout-button:hover {
-        color: #000000 !important; } }
+  outline: 0; }
+  .checkout-button h1 {
+    font-size: 35px;
+    line-height: 50px;
+    font-family: helvetica;
+    font-weight: 900;
+    color: #000000;
+    transition: color 0.4s ease;
+    -webkit-transition: color 0.4s ease;
+    -moz-transition: color 0.4s ease;
+    -ms-transition: color 0.4s ease;
+    -o-transition: color 0.4s ease;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    /* IE 9 */
+    -webkit-transform: translateY(-50%);
+    /* Safari */
+    transform-origin: 0 0;
+    position: absolute;
+    display: block;
+    z-index: 9; }
+    .checkout-button h1:hover {
+      color: #009900;
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/
+      /*  @if $media == large-desktop {
+          @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+        }*/ }
+      @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+        .checkout-button h1:hover {
+          color: #000000 !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+        .checkout-button h1:hover {
+          color: #000000 !important; } }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+        .checkout-button h1:hover {
+          color: #000000 !important; } }
+  .checkout-button .checkout-button-icon {
+    height: 20vw;
+    width: 20vw;
+    position: absolute;
+    left: 0%;
+    top: 0%; }
+    .checkout-button .checkout-button-icon svg {
+      height: 100%;
+      width: 100%; }
+
+.cart-error {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 100vw;
+  text-align: center;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  /* IE 9 */
+  -webkit-transform: translateY(-50%);
+  /* Safari */
+  transform-origin: 0 0; }
 
 .cart-back {
   position: absolute;
@@ -738,7 +884,7 @@ main {
   .form-entry:nth-child(1) {
     margin-top: 15px; }
   .form-entry input {
-    width: 150px;
+    width: 100%;
     left: 0px;
     position: absolute;
     top: 50%;
@@ -775,7 +921,7 @@ main {
       color: #000000; }
 
 select {
-  width: 150px;
+  width: 100%;
   left: 0px;
   position: absolute;
   top: 50%;
@@ -814,27 +960,25 @@ input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
 
 .payment {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  overflow: scroll; }
 
 .payment-form {
-  width: 100%;
-  height: 100%; }
+  width: 30%;
+  height: auto;
+  margin: auto; }
   .payment-form .payment-form-div {
-    width: 30%;
+    width: 100%;
     display: block;
-    position: absolute;
-    left: 0%;
-    top: 50px;
-    left: 50px; }
+    padding-top: 200px; }
 
 .payment-total {
-  position: absolute;
-  left: 50px;
-  bottom: 100px;
+  position: relative;
   height: auto;
-  width: 150px;
-  margin-bottom: 20px;
-  background-color: rgba(0, 0, 0, 0.7); }
+  width: 30%;
+  margin: auto;
+  margin-top: 40px;
+  padding-bottom: 200px; }
   .payment-total p {
     font-size: 18px;
     line-height: 26px;
@@ -856,22 +1000,23 @@ input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
 
 .shipment {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  overflow-y: scroll; }
   .shipment .shipment-content {
     width: 100%;
-    height: 100%; }
+    height: auto; }
     .shipment .shipment-content .shipment-form {
-      width: 100%;
-      height: 100%;
-      position: relative; }
+      width: 30%;
+      height: auto;
+      position: relative;
+      margin: auto;
+      padding-bottom: 200px; }
 
 .customer {
-  width: 30%;
+  width: 100%;
   display: block;
-  position: absolute;
-  left: 0%;
-  top: 50px;
-  left: 50px;
+  position: relative;
+  padding-top: 200px;
   /*  @if $media == large-desktop {
       @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
     }*/ }
@@ -881,11 +1026,10 @@ input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
       left: 30px; } }
 
 .address {
-  width: 35%;
+  width: 100%;
   display: block;
-  position: absolute;
-  left: 50px;
-  top: 195px;
+  position: relative;
+  margin-top: 40px;
   /*  @if $media == large-desktop {
       @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
     }*/ }
@@ -895,28 +1039,24 @@ input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
       left: 30px; } }
 
 .billing {
-  width: 50%;
+  width: 100%;
   display: block;
-  position: absolute;
-  left: 35%;
-  top: 195px;
-  margin-left: 50px;
+  position: relative;
+  margin-top: 40px;
   /*  @if $media == large-desktop {
       @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
     }*/ }
   @media only screen and (min-width: 0px) and (max-width: 767px) {
     .billing {
       top: 155px;
-      left: 45%;
-      margin-left: 30px; } }
+      left: 50px; } }
 
 .isBillingDifferent {
-  position: absolute;
-  left: 241px;
-  top: 156px;
+  position: relative;
   height: auto;
   width: auto;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-top: 40px;
   /*  @if $media == large-desktop {
       @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
     }*/ }
@@ -929,7 +1069,8 @@ input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
     font-size: 18px;
     line-height: 26px;
     font-family: helvetica;
-    font-weight: 900; }
+    font-weight: 900;
+    text-transform: none; }
   .isBillingDifferent input {
     font-size: 18px;
     line-height: 26px;
@@ -943,14 +1084,18 @@ input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
   left: 0; }
 
 .processed-thankyou {
-  width: 100%;
+  width: 50%;
   height: auto;
-  margin-top: 100px; }
+  margin: auto;
+  margin-top: 200px; }
   .processed-thankyou p {
+    margin-top: 40px;
     font-size: 18px;
     line-height: 26px;
     font-family: helvetica;
     font-weight: 900; }
+    .processed-thankyou p:nth-child(1) {
+      margin-top: 0; }
   .processed-thankyou a {
     width: 50px;
     height: 50px;

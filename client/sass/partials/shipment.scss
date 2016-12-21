@@ -1,26 +1,27 @@
 .shipment{
   width:100%;
   height:100%;
+  overflow-y: scroll;
   .shipment-content{
     width: 100%;
-    height: 100%;
+    height: auto;
 
     .shipment-form{
-      width:100%;
-      height:100%;
+      width:30%;
+      height:auto;
       position:relative;
+      margin: auto;
+      padding-bottom: $padding-top-ul;
     }
   }
 }
 
 
 .customer{
-  width:30%;
+  width:100%;
   display:block;
-  position: absolute;
-  left:0%;
-  top: 50px;
-  left: 50px;
+  position: relative;
+  padding-top:$padding-top-ul;
   @include respond-to(phone){
     top: 30px;
     left:30px;
@@ -28,11 +29,10 @@
 }
 
 .address{
-  width:35%;
+  width:100%;
   display:block;
-  position: absolute;
-  left:50px;
-  top: 195px;
+  position: relative;
+  margin-top: $margin-top-li;
   @include respond-to(phone){
     top: 155px;
     left:30px;
@@ -42,26 +42,22 @@
 
 
 .billing{
-  width:50%;
+  width:100%;
   display:block;
-  position: absolute;
-  left:35%;
-  top: 195px;
-  margin-left: 50px;
+  position: relative;
+  margin-top: $margin-top-li;
   @include respond-to(phone){
     top: 155px;
-    left:45%;
-    margin-left: 30px;
+    left:50px;
   }
 }
 
 .isBillingDifferent{
-  position: absolute;
-  left: 241px;
-  top: 156px;
+  position: relative;;
   height: auto;
   width: auto;
-  margin-bottom: 20px;
+  margin-bottom: $margin-top-li;;
+  margin-top:$margin-top-li;
   @include respond-to(phone){
     top: 125px;
     left:45%;
@@ -69,6 +65,7 @@
   }
   label{
     @include paragraph();
+    text-transform: none;
   }
   input{
     @include paragraph();

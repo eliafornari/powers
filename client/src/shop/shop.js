@@ -95,9 +95,12 @@ Shop.controller('detailCtrl', function($scope, $location, $rootScope, $routePara
 
     //......VARIATIONS
 
+    $scope.addActive=false;
+
       $rootScope.addVariation = function(){
 
         if($rootScope.selectedVariation){
+          $scope.addActive=true;
           $http({
             url: '/addVariation',
             method: 'POST',
@@ -111,10 +114,16 @@ Shop.controller('detailCtrl', function($scope, $location, $rootScope, $routePara
           }).then(function(response){
             // $rootScope.Cart = response;
             $rootScope.updateCart();
+
+            setTimeout(function(){
+              $scope.addActive=false;
+              $rootScope.$apply();
+            }, 1000);
             console.log(response);
           });
         }else{
-          $scope.variationErrorMessage = "select a size first"
+          $scope.variationErrorMessage = "select a size first";
+          $scope.addActive=false;
           setTimeout(function(){
             $scope.variationErrorMessage = false;
             $rootScope.$apply();

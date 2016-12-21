@@ -2,32 +2,31 @@
 .payment{
   width:100%;
   height:100%;
+  overflow: scroll;
 }
 
 
 .payment-form{
-  width:100%;
-  height:100%;
+  width:30%;
+  height:auto;
+  margin: auto;
   .payment-form-div{
-    width:30%;
+    width:100%;
     display:block;
-    position: absolute;
-    left:0%;
-    top: 50px;
-    left: 50px;
+    padding-top:$padding-top-ul;
+
   }
 }
 
 
 
   .payment-total{
-    position: absolute;
-    left:50px;
-    bottom: 100px;
+    position: relative;
     height: auto;
-    width: 150px;
-    margin-bottom: $margin-sides;
-    background-color: rgba(0,0,0,0.7);
+    width: 30%;
+    margin: auto;
+    margin-top: $margin-top-li;
+    padding-bottom: $padding-top-ul;
     p{
       @include paragraph();
       width:100%;

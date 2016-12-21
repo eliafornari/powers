@@ -9,10 +9,10 @@
     <!-- 2 -->
     <form name="shipmentForm" novalidate class="shipment-form" method="post" ng-submit="shipmentToPayment()">
 
-        <h1 class="h1 shipment-h1">SHIPMENT</h1>
+        <!-- <h1 class="h1 shipment-h1">SHIPMENT</h1> -->
 
       <div class="customer">
-        <h2 class="form-title">PERSONAL</h2>
+        <h2 class="form-subtitle">PERSONAL</h2>
         <div class="form-entry">
           <input type="text" name="name_customer" value="name" ng-model="checkout.customer.first_name" required placeholder="name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'name'">
             <span class="form-error" ng-show="checkoutForm.name_customer.$error.required && checkoutForm.name_customer.$touched">required</span>
@@ -35,7 +35,7 @@
 
       <div class="address">
 
-        <h2 class="form-title">ship to</h2>
+        <h2 class="form-subtitle">ship to</h2>
 
             <div class="form-entry">
               <input type="text" name="name_shipment" value="name" ng-model="checkout.shipment.first_name" required placeholder="name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'name'">
@@ -107,7 +107,7 @@
 
 
           <div class="billing" ng-show="isBillingDifferent">
-            <h2 class="form-title">bill to</h2>
+            <h2 class="form-subtitle">bill to</h2>
             <div class="form-entry">
               <input type="text" name="name_billing" value="name" ng-model="checkout.billing.first_name" required placeholder="name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'name'">
               <span class="form-error" ng-show="checkoutForm.name_billing.$error.required && checkoutForm.name_billing.$touched">required</span>
@@ -172,7 +172,12 @@
 
 
 
-    <button class="checkout-button hvr-sweep-to-right" type="submit" ng-class="{'invalid': shipmentForm.$invalid}" ng-disabled="shipmentForm.$invalid">PAYMENT</button>
+    <button class="checkout-button" type="submit" ng-class="{'invalid': shipmentForm.$invalid}" ng-disabled="shipmentForm.$invalid">
+      <h1>PAYMENT</h1>
+      <div class="checkout-button-icon">
+        <card-directive></card-directive>
+      </div>
+    </button>
     <!-- hvr-sweep-to-right -->
   </form>
 

@@ -2,7 +2,7 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
-  left:0;
+  left:0vw;
   top:0;
   z-index: $z-cart;
   background-color: $white;
@@ -20,18 +20,63 @@
 
 
 
+
+
+.dollar{
+  position: fixed;
+  top:50%;
+  left:$margin-sides;
+  height:100px;
+  margin-top: -50px;
+  width:auto;
+  z-index: $z-shop-dollar;
+  a{
+    position: relative;
+    display: block;
+    width:auto;
+    height: 100px;
+    .dollar-icon{
+      width:100px;
+      height:100px;
+      svg{
+        height:100%;
+        width:100%;
+      }
+
+    }
+
+  }
+  .dollar-contents{
+    display: block;
+    position: absolute;
+    color:$white;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height:100%;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+
+
+
+
 .clickOut{
   position: fixed;
-  background: transparent;
-  bottom:$margin-sides;
-  left:50%;
-  margin-left:-100px;
+  position: fixed;
+  top:$margin-sides;
+  left:$margin-sides;
   width:100px;
-  height: auto;
-  z-index: $z-clickOut;
-  p{
-    width:100%;
-    @include hover-effect-color($black, $green);
+  height: 100px;
+  z-index:$z-clickOut;
+  svg{
+    @include hover-effect-fill($white, $black, 'ex');
+    width: 100%;
+    height: 100%;
+    margin-left: 0%;
   }
 
 }
@@ -40,19 +85,24 @@
   height: 100%;
 }
 .cart-ul{
-  position: absolute;
-  left: 0;
-  top:0;
+  position: relative;
   width:50vw;
+  margin: auto;
   height:auto;
   overflow:scroll;
+  padding-top: $padding-top-ul;
   .cart-li{
     width:100%;
     display:block;
     height: 70px;
     position: relative;
     margin-top: $margin-top-li;
-
+    .cart-li-img{
+      // width:70px;
+      height:70px;
+      float: left;
+      // margin-left: 70px;
+    }
 
     .cart-li-text{
       float:left;
@@ -67,6 +117,7 @@
         @include paragraph();
       }
     }
+
     .cart-li-remove{
       position: absolute;
       right: $margin-sides;
@@ -80,12 +131,11 @@
 }
 
 .cart-total{
-  position: absolute;
-  left:50px;
-  bottom: 100px;
-  height: auto;
-  width: auto;
-  margin-bottom: $margin-sides;
+  position: relative;
+  width: 50vw;
+  margin: auto;
+  margin-top: $margin-top-li;
+  padding-bottom: $padding-top-ul;
   .cart-total-tax{
     @include paragraph();
   }
@@ -112,22 +162,64 @@
   color: #FFFFFF;
 }
 
+.form-subtitle{
+  @include h2();
+  color:$white;
+  background-color: $black;
+  text-align: center;
+}
+
 
 
 .checkout-button{
-  position: absolute;
-  top: 0;
-  right:0;
-  width: 50%;
+  position: fixed;
+  top: 50%;
+  right:$margin-sides;
   text-align: center;
-  height: 100vh;
-  line-height: 100vh;
-  @include h1();
-  @include hover-effect-color($black, $green);
+  height: 20vw;
+  width:20vw;
   background-color: $white;
+  cursor:pointer;
+  @include transform-element(translateY(-50%));
   border: 0;
   outline: 0;
-  cursor:pointer;
+
+  h1{
+    @include h1();
+    @include hover-effect-color($black, $green);
+    width: 100%;
+    text-align: center;
+    top:50%;
+    @include transform-element(translateY(-50%));
+    position: absolute;
+    display: block;
+    z-index:9;
+  }
+  .checkout-button-icon{
+    height:20vw;
+    width:20vw;
+    position: absolute;
+    // @include transform-element(translateX(-50%));
+    left:0%;
+    top:0%;
+    svg{
+      height:100%;
+      width:100%;
+    }
+  }
+}
+
+
+
+
+
+.cart-error{
+  position: absolute;
+  top:50%;
+  left:0%;
+  width:100vw;
+  text-align: center;
+  @include transform-element(translateY(-50%));
 }
 
 .cart-back{
@@ -151,7 +243,7 @@
     margin-top: 15px;
   }
   input{
-    width: 150px;
+    width: 100%;
     left: 0px;
     position: absolute;
     top: 50%;
@@ -196,7 +288,7 @@
 
 
 select{
-  width: 150px;
+  width: 100%;
   left: 0px;
   position: absolute;
   top: 50%;

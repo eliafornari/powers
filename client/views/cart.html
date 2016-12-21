@@ -6,12 +6,13 @@
         <table>
           <tr>
             <td>
+              <img src="{{c.images[0].url.https}}" alt="{{c.name}}" class="cart-li-img"/>
+
               <div class="cart-li-text">
                 <p class="cart-li-name">{{c.quantity}} {{c.name}}</p>
                 <p class="cart-li-price">{{c.pricing.formatted.without_tax}}</p>
               </div>
 
-              <img src="c.images[0]" alt="" />
 
               <span class="cart-li-remove" ng-click="removeItem(c.item)">X</span>
             </td>
@@ -24,15 +25,19 @@
 
 
     <div class="cart-total">
-      <p class="cart-total-amount">TOTAL {{Cart.totals.pre_discount.formatted.without_tax}}</p>
+      <p class="cart-total-amount">TOTAL {{Cart.totals.pre_discount.formatted.with_tax}}</p>
     </div>
 
-    <div class="cart-error" ng-show="noProductsError">
+    <div class="cart-error" ng-show="Cart.total_items==0">
       <p>no products in your cart</p>
-      <a ng-click="closeCart()">back</a>
     </div>
 
-    <button type="submit" class="checkout-button hvr-sweep-to-right" ng-click="cartToShipment()">CHECKOUT</button>
+    <button type="submit" class="checkout-button hvr-sweep-to-right" ng-click="cartToShipment()">
+      <h1>CHECKOUT</h1>
+      <div class="checkout-button-icon">
+        <dollar-directive></dollar-directive>
+      </div>
+    </button>
 
 
 </div>

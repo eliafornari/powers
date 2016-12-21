@@ -9,31 +9,36 @@
 
 
 
-  <p class="detail-price" ng-cloak>{{Detail.price.data.formatted.without_tax}}</p>
+  <p class="detail-price" ng-cloak>{{Detail.price.data.formatted.with_tax}}</p>
 
 
 
   <div class="detail-functions">
 
-      <div class="detail-modifiers">
-        <ul class="detail-modifiers-ul" ng-repeat="m in Detail.modifiers">
-          <p class="detail-modifiers-ul-placeholder" ng-click="showSelection(m.id)">{{m.title}} </p>
+    <div class="detail-modifiers">
+      <ul class="detail-modifiers-ul" ng-repeat="m in Detail.modifiers">
+        <p class="detail-modifiers-ul-placeholder" ng-click="showSelection(m.id)">{{m.title}} </p>
 
-          <div class="detail-modifiers-variations" ng-click="showSelection(m.id)">
-            <li class="detail-modifiers-variations-li" ng-repeat="v in m.variations" ng-click="thisVariation(Detail.id , m.id, m.title, v.id, v.title);" ng-show="selectedVariation[m.id].variation_title==v.title || m.open==true">
-              <a>{{v.title}}</a>
-            </li>
-          </div>
-        </ul>
-      </div>
-      <div class="detail-add">
-        <p class="detail-add-plus-variation" ng-hide="Detail.has_variation" ng-click="addToCart(Detail.id)">ADD</p>
-        <p class="detail-add-plus-variation" ng-show="Detail.has_variation" ng-click="addVariation()" ng-class="{'activeAdd': howManyVAriationsSelected>=Detail.total_variations}">ADD</p>
-      </div>
+        <div class="detail-modifiers-variations" ng-click="showSelection(m.id)">
+          <li class="detail-modifiers-variations-li" ng-repeat="v in m.variations" ng-click="thisVariation(Detail.id , m.id, m.title, v.id, v.title);" ng-show="selectedVariation[m.id].variation_title==v.title || m.open==true">
+            <a>{{v.title}}</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <div class="detail-add" ng-class="{'rotate':addActive}">
+    <p class="detail-add-plus-variation" ng-hide="Detail.has_variation" ng-click="addToCart(Detail.id)"><plus-directive></plus-directive></p>
+    <p class="detail-add-plus-variation" ng-show="Detail.has_variation" ng-click="addVariation()" ng-class="{'activeAdd': howManyVAriationsSelected>=Detail.total_variations}"><plus-directive></plus-directive></p>
   </div>
 
 
 
-  <a class="detail-back" href="/">back</a>
+  <a class="detail-back" href="/">
+    <arrow-directive></arrow-directive>
+  </a>
 
 </div>

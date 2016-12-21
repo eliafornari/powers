@@ -45,7 +45,40 @@ angular.module('myApp')
 .directive('carticonDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
   return {
     restrict: 'E',
-    templateUrl: 'views/icon/cart-icon.html',
+    templateUrl: 'views/icon/fuck-cart.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
+
+.directive('nosecartDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/nose-cart.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
+
+.directive('dollarDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/dollar.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
+
+.directive('arrowDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/arrow.html',
     replace: true,
     link: function(scope, elem, attrs) {
 
@@ -64,6 +97,30 @@ angular.module('myApp')
   };
 })
 
+
+.directive('cardDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/cards.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
+
+
+
+.directive('plusDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/icon/plus.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
 
 
 .directive('navDirective', function($rootScope, $location, $window, $routeParams, $timeout) {

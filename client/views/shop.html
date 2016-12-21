@@ -4,16 +4,18 @@
 
       <div class="shop-content">
         <ul class="product-ul">
-          <li class="product-li" ng-repeat="p in Product" ng-click="openDetailFN(p.slug)" ng-mouseenter="showGif=true" ng-mouseleave="showGif=false">
+          <li class="product-li" ng-repeat="p in Product" ng-click="openDetailFN(p.slug)" >
             <table>
               <tr>
                 <td>
-                  <div class="product-li-container">
-                    <img class="product-li-gif" src="{{p.gif.url}}" alt="{{p.description}}" loop="infinite"  ng-show="showGif"/>
+                  <div class="product-li-container" ng-mouseenter="showGif=true" ng-mouseleave="showGif=false">
+                    <!-- <img class="product-li-gif" src="{{p.gif.url}}" alt="{{p.description}}" loop="infinite"  ng-show="showGif"/> -->
                     <!-- -->
                     <img class="product-li-img" src="{{p.images[0].url.http}}" alt="{{p.description}}" ng-hide="showGif"/>
 
-                    <img class="product-li-blank" src="{{p.gif.blank}}" alt="{{p.description}}" ng-show="showGif"/>
+                    <img class="product-li-blank" src="{{p.gif.url}}" alt="{{p.description}}" ng-show="showGif && p.gif.url"/>
+
+                    <img class="product-li-img" src="{{p.images[1].url.http}}" alt="{{p.description}}" ng-show="showGif && !p.gif.url"/>
                     <!-- <a class="shop-li-add" ng-click="addToCart()">add</a> -->
                     <!-- <p class="product-price" ng-cloak>{{p.price.data.formatted.without_tax}}</p> -->
                   </div>

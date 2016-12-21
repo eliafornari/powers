@@ -1,7 +1,22 @@
 [
   {
-    "slug":"blank-black",
-    "url":"/assets/gif/Blank-Black-gif.gif",
-    "blank":"/assets/blank/Blank-Blac.jpg"
+    "slug":"powershake-black",
+    "url":"",
+    "blank":""
+  },
+  {
+    "slug":"powershake-blue",
+    "url":"/assets/gif/powershake.gif",
+    "blank":""
+  },
+  {
+    "slug":"halleluja-white",
+    "url":"",
+    "blank":""
+  },
+  {
+    "slug":"nc-17",
+    "url":"/assets/gif/nc17.gif",
+    "blank":""
   }
 ]

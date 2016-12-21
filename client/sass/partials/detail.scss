@@ -13,7 +13,7 @@
       margin-top: 10vh;
     }
     .detail-img{
-      max-width: 20vw;
+      max-width: 40vw;
       margin: auto;
       display: block;
       margin-top: 25vh;
@@ -55,36 +55,45 @@
 
 .detail-functions{
   position: fixed;
-  left: 50%;
-  bottom: $margin-sides;
-  width: 100px;
-  margin-left:-50px;
+  right: $margin-sides;
+  top: 50%;
+  width: auto;
   height: auto;
+  @include transform-element(translateY(-50%));
   z-index: $z-shop-functions;
-  @include respond-to(phone-device){
 
-  }
 }
 
 
 
 .detail-add{
-  position: absolute;
-  bottom: 0;
-  height:auto;
-  width:100%;
-  margin:0;
-  display: inline-block;
+  position: fixed;
+  bottom: $margin-sides;
+  right: $margin-sides;
+  height:90px;
+  width:90px;
+  // margin-left: -45px;
+  display: block;
+  cursor:pointer;
   p{
-    display: block;
+    height:100%;
     width:100%;
-    text-align: center;
-    vertical-align: middle;
-    margin:0;
-    @include hover-effect-color($black, $green);
-    @include paragraph();
-
+    svg{
+      height:100%;
+      width:100%;
+      display: block;
+    }
   }
+  // p{
+  //   display: block;
+  //   width:100%;
+  //   text-align: center;
+  //   vertical-align: middle;
+  //   margin:0;
+  //   @include hover-effect-color($black, $green);
+  //   @include paragraph();
+  //
+  // }
 }
 
 
@@ -114,6 +123,7 @@
         clear: both;
         a{
           @include paragraph();
+          @include hover-effect-color($black, $green);
 
         }
       }
@@ -127,4 +137,44 @@
   position: fixed;
   top:$margin-sides;
   left:$margin-sides;
+  width:100px;
+  height: 100px;
+  svg{
+    height: 100%;
+    width: 100%;
+    display: block;
+    @include hover-effect-fill($black, $green, 'arrow');
+  }
 }
+
+
+
+
+@-webkit-keyframes rotate {
+from {
+-webkit-transform: rotate(180deg);
+}
+to {
+-webkit-transform: rotate(0deg);
+}
+}
+
+@-moz-keyframes rotate {
+from
+{
+  -moz-transform: rotate(180deg);
+}
+to {
+-moz-transform: rotate(0deg);
+}
+}
+
+.detail-add.rotate {   -webkit-animation-name:             rotate;
+-webkit-animation-duration:         0.5s;
+-webkit-animation-iteration-count:  2;
+-webkit-animation-timing-function: linear;
+
+-moz-animation-name:             rotate;
+-moz-animation-duration:         0.5s;
+-moz-animation-iteration-count:  2;
+-moz-animation-timing-function: linear;}

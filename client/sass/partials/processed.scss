@@ -11,11 +11,16 @@
 
 
 .processed-thankyou{
-  width:100%;
+  width:50%;
   height:auto;
-  margin-top: $margin-top;
+  margin: auto;
+  margin-top: $padding-top-ul;
   p{
+    margin-top: $margin-top-li;
     @include paragraph();
+    &:nth-child(1){
+      margin-top: 0;
+    }
   }
 
   a{

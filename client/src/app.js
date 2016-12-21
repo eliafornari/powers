@@ -17,7 +17,7 @@ angular.module('myApp', [
 
 .run(['$anchorScroll', '$route', '$rootScope', '$location', '$routeParams','$templateCache', function($anchorScroll, $route, $rootScope, $location, $routeParams, $templateCache) {
 
-$rootScope.pageLoading = true;
+
 
 //a change of path should not reload the page
 
@@ -101,7 +101,6 @@ $sceProvider.enabled(false);
 
     .when('/', {
       templateUrl: 'views/shop.html',
-      controller: 'appCtrl',
       resolve: {
 
         }
@@ -127,6 +126,7 @@ $rootScope.Story, $rootScope.totalPages;
 $rootScope.pageClass = "page-home";
 
 
+$rootScope.pageLoading = true;
 
 
 
@@ -136,39 +136,6 @@ $rootScope.pageClass = "page-home";
 
 
 
-  $rootScope.Auth;
-    $rootScope.authentication = function(){
-
-          // Simple GET request example:
-          $http({
-            method: 'GET',
-            url: '/authenticate'
-          }).then(function successCallback(response) {
-
-            if(response.data.access_token){
-                console.log("auth");
-                console.log(response);
-                // this callback will be called asynchronously
-                // when the response is available
-                $rootScope.Auth = response.data;
-                var expires = response.data.expires;
-                var identifier = response.data.identifier;
-                var expires_in = response.data.expires_in;
-                var access_token = response.data.access_token;
-                var type = response.data.token_type;
-
-
-
-
-            }
-            $rootScope.getProductsFN();
-
-            }, function errorCallback(response) {
-              // called asynchronously if an error occurs
-              // or server returns response with an error status.
-            });
-
-    }//addToCart
 
     $rootScope.getProductsFN=function(){
       $http({method: 'GET', url: '/getProducts'}).then(function(response){
@@ -182,6 +149,7 @@ $rootScope.pageClass = "page-home";
         console.log("an error occurred");
       })
     }
+    $rootScope.getProductsFN();
 
     $rootScope.getGif=function(){
       $http({method: 'GET', url: '/data/gif.json'}).then(function(response){
@@ -204,14 +172,6 @@ $rootScope.pageClass = "page-home";
         }
       }
     }
-
-
-
-
-
-  setTimeout(function(){
-    $rootScope.authentication();
-  }, 600);
 
 
 
@@ -300,7 +260,6 @@ $rootScope.pageClass = "page-home";
         if ($rootScope.isMobile==true){
             if(window.innerHeight < window.innerWidth){
               $rootScope.landscapeView = true;
-              $rootScope.pageLoading = true;
               $(".landscape-view-wrapper").css({
                 "width":"100vw",
                 "height": "100vh",
@@ -308,7 +267,6 @@ $rootScope.pageClass = "page-home";
             });
             }else{
               $rootScope.landscapeView = false;
-              $rootScope.pageLoading = false;
             }
         }
       }

@@ -186,10 +186,10 @@ $scope.$watch('checkout', function(value){
 
   console.log('country: '+$rootScope.checkout.shipment.country);
   if($rootScope.checkout.shipment.country=='US'){
-    $rootScope.checkout.shipment_method='1301792307242074821'
+    $rootScope.checkout.shipment_method='1334498086495453432'
     console.log('US');
   }else{
-    $rootScope.checkout.shipment_method='1314165476770709929'
+    $rootScope.checkout.shipment_method='1410240011105730605'
     console.log('INT');
   }
 }, true)

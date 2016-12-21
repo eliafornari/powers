@@ -20,9 +20,9 @@
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@">
-<meta name="twitter:site" content="@delantic">
-<meta name="twitter:title" content="delantic">
-<meta name="twitter:description" content="delantic">
+<meta name="twitter:site" content="@powers">
+<meta name="twitter:title" content="powers">
+<meta name="twitter:description" content="powers">
 <meta name="twitter:image" content="https://powers.supply/client/assets/images/profile.jpg">
 
 <meta name="description" content="alifeinadiary">
@@ -31,8 +31,8 @@
 <link rel="canonical" href="https://powers.supply/">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
-<meta property="og:title" content="delantic">
-<meta property="og:description" content="delantic">
+<meta property="og:title" content="powers">
+<meta property="og:description" content="powers">
 <meta property="og:url" content="https://powers.supply/">
 <meta property="og:site_name" content="delantic">
 
@@ -80,18 +80,23 @@
 <body ng-controller="shopCtrl">
 
 
+<div class="logo" ng-class="{'loading': pageLoading}" ng-click="closeCart()">
+  <a href="/">
+    <logo-directive></logo-directive>
+  </a>
+</div>
 
   <nav-directive></nav-directive>
 
   <div ng-show="pageLoading" class="page-loader-div">
-    <div class="loading-logo">
-    </div>
   </div>
 
-  <div class="dollar" ng-cloak>
+  <div class="dollar" ng-cloak ng-mouseenter="hoverCart=true" ng-mouseleave="hoverCart=false">
     <a ng-click="openCart()">
       <div class="dollar-icon">
-        <carticon-directive></carticon-directive>
+        <carticon-directive ng-hide="hoverCart"></carticon-directive>
+        <nosecart-directive ng-show="hoverCart"></nosecart-directive>
+
       </div>
       <p class="dollar-contents" ng-cloak>{{Cart.total_items}}</p>
     </a>
@@ -99,7 +104,7 @@
 
 
   <div class="clickOut" ng-click="closeCart()" ng-show="showCart" ng-cloak>
-    <p>close</p>
+    <ex-directive></ex-directive>
   </div>
 
   <div class="cart" ng-include="template.url" ng-show="showCart" ng-controller="cartCtrl">

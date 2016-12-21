@@ -6,7 +6,7 @@
 
     <div class="payment-form-div">
 
-      <h2 class="form-title">bill to</h2>
+      <h2 class="form-subtitle">payment</h2>
       <div class="form-entry">
         <input type="text" name="number" value="card number" ng-model="payment.number" required="required" placeholder="card number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'card number'" min="0" max="10">
         <!-- <div class="">
@@ -32,7 +32,12 @@
 
       </div>
     </div>
-    <button type="submit" class="checkout-button hvr-sweep-to-right" ng-disabled="paymentForm.$invalid">PAY</button>
+    <button type="submit" class="checkout-button" ng-disabled="paymentForm.$invalid">
+      <h1>COMPLETE ORDER</h1>
+      <!-- <div class="checkout-button-icon">
+        <card-directive></card-directive>
+      </div> -->
+    </button>
     <!-- hvr-sweep-to-right -->
 
   </form>
@@ -40,7 +45,7 @@
 
   <div class="payment-total" >
     <p>SHIPPING <span>{{Totals.totals.shipping_price.formatted}}</span></p>
-    <!-- <p>TAX <span>10%</span></p> -->
+    <p>TAX <span>{{Totals.totals.tax.formatted}}</span></p>
     <p>TOTAL <span>{{Totals.totals.total.formatted}}</span></p>
   </div>
 
