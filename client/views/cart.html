@@ -10,7 +10,7 @@
 
               <div class="cart-li-text">
                 <p class="cart-li-name">{{c.quantity}} {{c.name}}</p>
-                <p class="cart-li-price">{{c.pricing.formatted.without_tax}}</p>
+                <p class="cart-li-price">{{c.pricing.formatted.with_tax}}</p>
               </div>
 
 
@@ -24,7 +24,7 @@
     </ul>
 
 
-    <div class="cart-total">
+    <div class="cart-total" ng-show="Cart.total_items!=0">
       <p class="cart-total-amount">TOTAL {{Cart.totals.pre_discount.formatted.with_tax}}</p>
     </div>
 
@@ -32,7 +32,7 @@
       <p>no products in your cart</p>
     </div>
 
-    <button type="submit" class="checkout-button hvr-sweep-to-right" ng-click="cartToShipment()">
+    <button type="submit" class="checkout-button hvr-sweep-to-right" ng-click="cartToShipment()" ng-show="Cart.total_items!=0">
       <h1>CHECKOUT</h1>
       <div class="checkout-button-icon">
         <dollar-directive></dollar-directive>
