@@ -2,7 +2,7 @@
 
   <div class="detail-images" ng-init="zoomImage=false" ng-class="{'zoom': zoomImage}" ng-click="zoomImage=!zoomImage">
     <div class="detail-images-single" ng-repeat="i in Detail.images">
-      <img class="detail-img" src="{{i.url.http}}" alt="{{p.description}}" />
+      <img class="detail-img" src="{{i.url.https}}" alt="{{p.description}}" />
     </div>
   </div>
 
